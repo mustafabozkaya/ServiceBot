@@ -3,7 +3,7 @@
   <!-- <arg name="model" default="$(find urdf_tutorial)/urdf/08-macroed.urdf.xacro" /> -->
   <arg name="model" default="$(find service_description)/urdf/service_circle_a2_realsense.urdf.xacro" />
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find service_description)/rviz/rv.rviz" />
+  <arg name="rvizconfig" default="$(find service_description)/rviz/rviz_model.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
