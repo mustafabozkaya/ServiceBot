@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot name="epic_service_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+    <xacro:include filename="$(find service_description)/urdf/service_library.urdf.xacro" />
+
+    <!-- include the macro for the robot -->
+    <xacro:servicebot />
+    <!-- <xacro:stack_hexagons parent="base_link" />
+    <xacro:sensor_kinect parent="base_link" /> -->
+
+
+</robot>
