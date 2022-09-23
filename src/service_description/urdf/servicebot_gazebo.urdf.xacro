@@ -2,60 +2,70 @@
 
 <robot name="servicebot_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:macro name="servicebot_sim">
-		<gazebo reference="reduktor1">
-			<mu1>1.0</mu1>
-			<mu2>1.0</mu2>
-			<kp>1000000.0</kp>
-			<kd>100.0</kd>
-			<minDepth>0.001</minDepth>
-			<maxVel>1.0</maxVel>
-			<maxForce>1000.0</maxForce>
-			<material>Gazebo/Blue</material>
-		</gazebo>
 
-		<gazebo reference="reduktor2">
-			<mu1>1.0</mu1>
-			<mu2>1.0</mu2>
-			<kp>1000000.0</kp>
-			<kd>100.0</kd>
-			<minDepth>0.001</minDepth>
-			<maxVel>1.0</maxVel>
-			<material>Gazebo/Blue</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel1">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
-			<kp>1000000.0</kp>
-			<kd>100.0</kd>
-			<minDepth>0.001</minDepth>
-			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel2">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
-			<kp>1000000.0</kp>
-			<kd>100.0</kd>
-			<minDepth>0.001</minDepth>
-			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel3">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
-			<kp>1000000.0</kp>
-			<kd>100.0</kd>
-			<minDepth>0.001</minDepth>
-			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
-		</gazebo>
 
 		<gazebo reference="base_link">
 			<material>Gazebo/Blue</material>
 		</gazebo>
+
+		<gazebo reference="reduktorteker1">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<maxForce>1000.0</maxForce>
+			<material>Gazebo/Green</material>
+
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="reduktorteker2">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+
+		<gazebo reference="chaster_wheel1">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="chaster_wheel2">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="chaster_wheel3">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
 
 		<gazebo reference="upper_chassis">
 			<material>Gazebo/Turquoise</material>
@@ -77,63 +87,59 @@
 			<material>Gazebo/Yellow</material>
 		</gazebo>
 
-		<gazebo reference="chaster_wheel1">
-			<material>Gazebo/Green</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel2">
-			<material>Gazebo/Green</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel3">
-			<material>Gazebo/Green</material>
-		</gazebo>
-
 
 		<!-- This block connects the wheel joint to an actuator (motor), which informs both
     simulation and visualization of the robot -->
 		<transmission name="wheel_trans2">
 			<type>transmission_interface/SimpleTransmission</type>
 			<actuator name="wheel_motor2">
-				<mechanicalReduction>21</mechanicalReduction>
+				<mechanicalReduction>1</mechanicalReduction>
 			</actuator>
-			<joint name="$reduktor_joint2">
-				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+			<joint name="reduktor_joint2">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			</joint>
 		</transmission>
 
 		<transmission name="wheel_trans1">
 			<type>transmission_interface/SimpleTransmission</type>
 			<actuator name="wheel_motor1">
-				<mechanicalReduction>21</mechanicalReduction>
+				<mechanicalReduction>1</mechanicalReduction>
 			</actuator>
 			<joint name="reduktor_joint1">
-				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			</joint>
 		</transmission>
 
 		<!-- Gazebo plugin for ROS Control -->
-		<gazebo>
+		<!-- <gazebo>
 			<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 				<robotNamespace>/</robotNamespace>
 			</plugin>
-		</gazebo>
+		</gazebo> -->
 
 		<gazebo>
-			<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
 				<alwaysOn>true</alwaysOn>
 				<updateRate>20</updateRate>
-				<leftJoint>reduktor_joint2</leftJoint>
+				<publishTf> true </publishTf>
+				<leftJoint>reduktor_joint1</leftJoint>
 				<rightJoint>reduktor_joint2</rightJoint>
 				<wheelSeparation>.230</wheelSeparation>
 				<wheelDiameter>0.070</wheelDiameter>
-				<torque>1.0</torque>
-				<commandTopic>cmd_vel</commandTopic>
-				<odometryTopic>odom</odometryTopic>
-				<odometryFrame>odom</odometryFrame>
-				<robotBaseFrame>base_footprint</robotBaseFrame>
+				<torque>5.0</torque>
+				<commandTopic>/cmd_vel</commandTopic>
+				<odometrySource>world</odometrySource> <!-- 'encoder' instead of 'world' is also possible -->
+				<odometryTopic>/odom</odometryTopic> <!-- relative/name ,  /global/name  -->
+				<odometryFrame>/odom</odometryFrame>
+				<robotBaseFrame>/base_footprint</robotBaseFrame>
+				<publishOdomTF> true </publishOdomTF>
 				<publishWheelJointState>true</publishWheelJointState>
+				<!-- Set to true to publish transforms for the wheel links, defaults to false -->
+				<publishWheelTF>false</publishWheelTF>
+				<wheelAcceleration> 2.8 </wheelAcceleration>
+				<wheelTorque> 5.0 </wheelTorque>
 				<legacyMode>true</legacyMode>
+				<rosDebugLevel> Debug </rosDebugLevel> <!-- <rosDebugLevel>Debug</rosDebugLevel> -->
 			</plugin>
 		</gazebo>
 

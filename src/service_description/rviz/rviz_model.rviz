@@ -4,6 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
         - /RobotModel1
         - /RobotModel1/Links1
         - /TF1
@@ -40,7 +41,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -109,22 +110,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        reduktor1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        reduktor2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         reduktor_mil1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         reduktor_mil2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        reduktorteker1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        reduktorteker2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -150,16 +151,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         upper_chassis:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -192,20 +183,22 @@ Visualization Manager:
         chaster_wheel_chassis3:
           Value: false
         motor1:
-          Value: true
+          Value: false
         motor2:
-          Value: true
+          Value: false
         motor_baglanti_plaka:
           Value: false
         motor_baglanti_plaka2:
           Value: false
-        reduktor1:
-          Value: true
-        reduktor2:
+        odom:
           Value: true
         reduktor_mil1:
-          Value: true
+          Value: false
         reduktor_mil2:
+          Value: false
+        reduktorteker1:
+          Value: true
+        reduktorteker2:
           Value: true
         supan_pole1:
           Value: false
@@ -217,10 +210,6 @@ Visualization Manager:
           Value: false
         upper_chassis:
           Value: false
-        wheel1:
-          Value: true
-        wheel2:
-          Value: true
       Marker Alpha: 1
       Marker Scale: 0.4000000059604645
       Name: TF
@@ -228,44 +217,43 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_footprint:
-          base_link:
-            chaster_wheel_chassis1:
-              chaster_wheel1:
+        odom:
+          base_footprint:
+            base_link:
+              chaster_wheel_chassis1:
+                chaster_wheel1:
+                  {}
+              chaster_wheel_chassis2:
+                chaster_wheel2:
+                  {}
+              chaster_wheel_chassis3:
+                chaster_wheel3:
+                  {}
+              supan_pole1:
                 {}
-            chaster_wheel_chassis2:
-              chaster_wheel2:
-                {}
-            chaster_wheel_chassis3:
-              chaster_wheel3:
-                {}
-            supan_pole1:
-              {}
-            supan_pole2:
-              motor_baglanti_plaka:
-                motor1:
-                  reduktor_mil1:
-                    reduktor1:
-                      wheel1:
+              supan_pole2:
+                motor_baglanti_plaka:
+                  motor1:
+                    reduktor_mil1:
+                      reduktorteker1:
                         {}
-            supan_pole3:
-              motor_baglanti_plaka2:
-                motor2:
-                  reduktor_mil2:
-                    reduktor2:
-                      wheel2:
+              supan_pole3:
+                motor_baglanti_plaka2:
+                  motor2:
+                    reduktor_mil2:
+                      reduktorteker2:
                         {}
-            supan_pole4:
-              {}
-            upper_chassis:
-              {}
+              supan_pole4:
+                {}
+              upper_chassis:
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -274,7 +262,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.7399120330810547
+      Distance: 3.7123985290527344
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -290,9 +278,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3247978985309601
+      Pitch: 0.3797978460788727
       Target Frame: <Fixed Frame>
-      Yaw: 1.7862579822540283
+      Yaw: 5.249431610107422
     Saved: ~
 Window Geometry:
   Displays:

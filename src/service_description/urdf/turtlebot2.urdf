@@ -147,6 +147,7 @@
          <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
       </inertial>
    </link>
+
    <joint name="caster_front_joint" type="fixed">
       <parent link="base_link" />
       <child link="caster_front_link" />
@@ -165,6 +166,7 @@
          <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
       </inertial>
    </link>
+
    <joint name="caster_back_joint" type="fixed">
       <parent link="base_link" />
       <child link="caster_back_link" />
@@ -838,6 +840,7 @@
       </inertial>
    </link>
 
+   
    <!-- Camera links and joints-->
    <joint name="camera_rgb_joint" type="fixed">
       <origin rpy="0 0 0" xyz="-0.087 0.0205 0.287" />

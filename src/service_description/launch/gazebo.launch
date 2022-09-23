@@ -39,4 +39,6 @@
   <!-- robot steering -->
   <node name="robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
 
+  <!-- rqt_gui -->
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
 </launch>
