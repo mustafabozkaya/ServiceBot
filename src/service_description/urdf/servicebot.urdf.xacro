@@ -38,35 +38,6 @@
     <color rgba="0 1 0 1" />
   </material>
 
-  <material name="yellow">
-    <color rgba="1 1 0 1" />
-  </material>
-
-  <material name="grey">
-    <color rgba="0.5 0.5 0.5 1" />
-
-  </material>
-
-  <material name="orange">
-    <color rgba="1 0.5 0 1" />
-  </material>
-
-  <material name="brown">
-    <color rgba="0.5 0.25 0 1" />
-  </material>
-
-  <material name="purple">
-    <color rgba="0.5 0 0.5 1" />
-  </material>
-
-  <material name="cyan">
-    <color rgba="0 1 1 1" />
-  </material>
-
-  <material name="magenta">
-    <color rgba="1 0 1 1" />
-  </material>
-
 
   <!-- xacro material property -->
   <!-- servicebot -->
@@ -109,7 +80,7 @@
       <inertial>
         <!-- COM experimentally determined -->
         <origin xyz="0.01 0 0" />
-        <mass value="20" /> <!--  kg for small/big battery pack -->
+        <mass value="15" /> <!--  kg for small/big battery pack -->
         <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
@@ -261,7 +232,7 @@
     <joint name="motor_baglanti_plaka_joint1" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
-      <origin xyz="0 -0.0765 -0.043" rpy="0 0 0 " />
+      <origin xyz="0 -0.0765 -0.04" rpy="0 0 0 " />
       <parent link="supan_pole2" />
       <child link="motor_baglanti_plaka" />
       <!-- <axis xyz="0 0 1" /> -->
@@ -301,7 +272,7 @@
     <joint name="motor_baglanti_plaka_joint2" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
-      <origin xyz="0 -0.0765 -0.043" rpy="0 0 0 " />
+      <origin xyz="0 -0.0765 -0.04" rpy="0 0 0 " />
       <parent link="supan_pole3" />
       <child link="motor_baglanti_plaka2" />
       <!-- <axis xyz="0 0.0 1" /> -->
@@ -381,7 +352,7 @@
     <!-- Motor2 -->
     <joint name="motor_joint2" type="fixed">
       <!-- prismatic -->
-      <origin xyz="0.02 0.0 -0.032" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
+      <origin xyz="0.02 0.0 -0.03" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
       <parent link="motor_baglanti_plaka2" />
       <child link="motor2" />
       <axis xyz="1 0 0" />
@@ -421,7 +392,7 @@
     <!-- Reductor mil1 -->
     <joint name="reduktor_mil_joint1" type="fixed">
       <!-- prismatic -->
-      <origin xyz="0.055 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0.058 0.0 0.0" rpy="0 0 0" />
       <parent link="motor1" />
       <child link="reduktor_mil1" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -431,14 +402,14 @@
     <link name="reduktor_mil1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.013 -0.007 0.007" rpy="0 1.57079 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.013 -0.007 0.007" rpy="0 1.57079 0" />
       </collision>
@@ -459,7 +430,7 @@
 
     <!-- Reductor mil2 -->
     <joint name="reduktor_mil_joint2" type="fixed">
-      <origin xyz="-0.055 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="-0.058 0.0 0.0" rpy="0 0 0" />
       <parent link="motor2" />
       <child link="reduktor_mil2" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -469,14 +440,14 @@
     <link name="reduktor_mil2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
       </collision>
@@ -500,24 +471,24 @@
       <!-- prismatic -->
       <origin xyz="0.04 0.0 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil1" />
-      <child link="reduktorteker1" />
+      <child link="reduktor1" />
       <axis xyz="1 0 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
-      <limit effort="100" velocity="20" />
+
     </joint>
-    <link name="reduktorteker1">
+    <link name="reduktor1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -538,22 +509,104 @@
     <joint name="reduktor_joint2" type="continuous">
       <origin xyz="-0.04 0.0 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil2" />
-      <child link="reduktorteker2" />
+      <child link="reduktor2" />
       <axis xyz="1 0 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
-      <limit effort="100" velocity="20" />
+
     </joint>
-    <link name="reduktorteker2">
+    <link name="reduktor2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
+        </geometry>
+        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+      </collision>
+      <inertial>
+        <!-- COM experimentally determined -->
+        <origin xyz="0.05375 -0.00689  -0.1" />
+        <mass value="0.21" /> <!--  kg for small/big battery pack -->
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+             ixx = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 * m * (3 * r^2 + h^2)
+             izz = 1/2 * m * r^2
+          -->
+        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
+      </inertial>
+    </link>
+
+    <!-- Drive Wheel1 -->
+    <joint name="wheel_joint1" type="fixed">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <parent link="reduktor1" />
+      <child link="wheel1" />
+      <!-- <axis xyz="0 1 0" /> -->
+      <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
+
+    </joint>
+    <link name="wheel1">
+      <visual>
+        <geometry>
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+        </geometry>
+        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+      </visual>
+      <material name="green">
+        <color rgba="0 0 1 1" />
+      </material>
+      <collision>
+        <geometry>
+          <!-- <cylinder length="0.142" radius="0.006" /> -->
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+        </geometry>
+        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+      </collision>
+      <inertial>
+        <!-- COM experimentally determined -->
+        <origin xyz="0.05375 -0.00689  -0.1" />
+        <mass value="0.21" /> <!--  kg for small/big battery pack -->
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+             ixx = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 * m * (3 * r^2 + h^2)
+             izz = 1/2 * m * r^2
+          -->
+        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
+      </inertial>
+    </link>
+
+    <!-- Drive Wheel2 -->
+    <joint name="wheel_joint2" type="fixed">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <parent link="reduktor2" />
+      <child link="wheel2" />
+      <!-- <axis xyz="0 1 0" /> -->
+      <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
+
+    </joint>
+    <link name="wheel2">
+      <visual>
+        <geometry>
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+        </geometry>
+        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+      </visual>
+      <material name="green">
+        <color rgba="0 0 1 1" />
+      </material>
+      <collision>
+        <geometry>
+          <!-- <cylinder length="0.142" radius="0.006" /> -->
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
       </collision>
@@ -573,16 +626,13 @@
     </link>
 
 
-    <!-- 3D camera -->
-
     <!-- Chaster wheel chassis1 -->
     <joint name="chaster_wheel_chassis_joint1" type="revolute">
       <origin xyz="0.006 -0.198 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis1" />
       <axis xyz="0 0 1" />
-      <limit lower="3.14159" upper="3.14159" effort="10" velocity="1" />
-      <dynamics damping="0.01" friction="0.0" />
+      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis1">
       <visual>
@@ -619,8 +669,7 @@
       <parent link="base_link" />
       <child link="chaster_wheel_chassis2" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.14" upper="3.14" effort="10" velocity="1" />
-      <dynamics damping="0.01" friction="0.0" />
+      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis2">
       <visual>
@@ -632,7 +681,7 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
       </collision>
@@ -657,8 +706,7 @@
       <parent link="base_link" />
       <child link="chaster_wheel_chassis3" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.14" upper="3.14" effort="10" velocity="1" />
-      <dynamics damping="0.01" friction="0.0" />
+      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis3">
       <visual>
@@ -695,7 +743,6 @@
       <parent link="chaster_wheel_chassis1" />
       <child link="chaster_wheel1" />
       <axis xyz="1 0 0" />
-      <limit lower="-3.14" upper="3.14" effort="100" velocity="20" />
       <dynamics damping="0.1" friction="0.1" />
 
     </joint>
@@ -827,9 +874,6 @@
           <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.31 -0.32 -0.03" rpy="0 0 0" />
-        <material name="turquoise">
-          <color rgba="0 1 1 1" />
-        </material>
       </visual>
       <collision>
         <geometry>
@@ -841,7 +885,7 @@
       <inertial>
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
-        <mass value="30" /> <!--  kg for small/big battery pack -->
+        <mass value="0.20" /> <!--  kg for small/big battery pack -->
         <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
@@ -849,10 +893,40 @@
              iyy = 1/12 * m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
-        <inertia ixx="0.0057724" ixy="0.0" ixz="0.0" iyy="0.0057724" iyz="0.0" izz="0.0000597" />
+        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
       </inertial>
     </link>
 
+    <!-- Rplidar-->
+    <link name="rplidar_laser_link">
+      <visual>
+        <origin rpy="0 0 ${2*M_PI_4}" xyz="0 0 0" />
+        <geometry>
+          <mesh filename="package://service_description/meshes/sensors/rplidar-a2.stl" />
+        </geometry>
+        <material name="dark_grey" />
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <geometry>
+          <cylinder length="0.01" radius="0.015" />
+        </geometry>
+      </collision>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <mass value="0.1" />
+        <inertia ixx="6.458333333333333e-06" ixy="0" ixz="0" iyy="6.458333333333333e-06" iyz="0" izz="1.1249999999999999e-05" />
+
+      </inertial>
+    </link>
+  
+    <joint name="rplidar_laser_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="rplidar_laser_link" />
+      <origin rpy="0 0 0" xyz="0.0 0.18 0.25" />
+      <axis xyz="0 1 0" />
+    </joint>
+    
 
     <!-- gazebo simulation plugin -->
     <xacro:servicebot_sim />

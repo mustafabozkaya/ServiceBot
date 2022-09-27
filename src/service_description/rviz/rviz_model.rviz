@@ -130,6 +130,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        rplidar_laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         supan_pole1:
           Alpha: 1
           Show Axes: false
@@ -183,22 +188,22 @@ Visualization Manager:
         chaster_wheel_chassis3:
           Value: false
         motor1:
-          Value: false
+          Value: true
         motor2:
           Value: false
         motor_baglanti_plaka:
           Value: false
         motor_baglanti_plaka2:
           Value: false
-        odom:
-          Value: true
         reduktor_mil1:
-          Value: false
+          Value: true
         reduktor_mil2:
-          Value: false
+          Value: true
         reduktorteker1:
           Value: true
         reduktorteker2:
+          Value: true
+        rplidar_laser_link:
           Value: true
         supan_pole1:
           Value: false
@@ -217,43 +222,46 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_footprint:
-            base_link:
-              chaster_wheel_chassis1:
-                chaster_wheel1:
-                  {}
-              chaster_wheel_chassis2:
-                chaster_wheel2:
-                  {}
-              chaster_wheel_chassis3:
-                chaster_wheel3:
-                  {}
-              supan_pole1:
+        base_footprint:
+          base_link:
+            chaster_wheel_chassis1:
+              chaster_wheel1:
                 {}
-              supan_pole2:
-                motor_baglanti_plaka:
-                  motor1:
-                    reduktor_mil1:
-                      reduktorteker1:
-                        {}
-              supan_pole3:
-                motor_baglanti_plaka2:
-                  motor2:
-                    reduktor_mil2:
-                      reduktorteker2:
-                        {}
-              supan_pole4:
+            chaster_wheel_chassis2:
+              chaster_wheel2:
                 {}
-              upper_chassis:
+            chaster_wheel_chassis3:
+              chaster_wheel3:
                 {}
+            reduktorteker1:
+              {}
+            reduktorteker2:
+              {}
+            rplidar_laser_link:
+              {}
+            supan_pole1:
+              {}
+            supan_pole2:
+              motor_baglanti_plaka:
+                motor1:
+                  reduktor_mil1:
+                    {}
+            supan_pole3:
+              motor_baglanti_plaka2:
+                motor2:
+                  reduktor_mil2:
+                    {}
+            supan_pole4:
+              {}
+            upper_chassis:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -261,8 +269,8 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 3.7123985290527344
+      Class: rviz/ThirdPersonFollower
+      Distance: 1.0720356702804565
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -270,17 +278,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.13728518784046173
-        Y: -0.016929302364587784
-        Z: 0.06963095813989639
+        X: -0.09544256329536438
+        Y: -0.514222264289856
+        Z: 1.909183538373327e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3797978460788727
+      Pitch: 0.07479850202798843
       Target Frame: <Fixed Frame>
-      Yaw: 5.249431610107422
+      Yaw: 1.5043578147888184
     Saved: ~
 Window Geometry:
   Displays:

@@ -46,8 +46,8 @@ servicebot:
     # Wheel separation and diameter. These are both optional.
     # diff_drive_controller will attempt to read either one or both from the
     # URDF if not specified as a parameter
-    wheel_separation : 0.145
-    wheel_radius : 0.0325
+    wheel_separation : 0.35
+    wheel_radius : 0.08
 
     # Odometry covariances for the encoder output of the robot. These values should
     # be tuned to your robot's sample odometry data, but these values are a good place
