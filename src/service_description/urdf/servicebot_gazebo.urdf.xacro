@@ -9,8 +9,7 @@
 			<kd>100.0</kd>
 			<minDepth>0.001</minDepth>
 			<maxVel>1.0</maxVel>
-			<maxForce>1000.0</maxForce>
-			<material>Gazebo/Blue</material>
+			<material>Gazebo/Cyan</material>
 		</gazebo>
 
 		<gazebo reference="reduktor2">
@@ -20,106 +19,95 @@
 			<kd>100.0</kd>
 			<minDepth>0.001</minDepth>
 			<maxVel>1.0</maxVel>
-			<material>Gazebo/Blue</material>
+			<material>Gazebo/Cyan</material>
 		</gazebo>
 
 		<gazebo reference="chaster_wheel1">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
+			<mu2>200.0</mu2>
 			<kp>1000000.0</kp>
 			<kd>100.0</kd>
 			<minDepth>0.001</minDepth>
 			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
+			<material>Gazebo/Green</material>
 		</gazebo>
 
 		<gazebo reference="chaster_wheel2">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
+			<mu2>200.0</mu2>
 			<kp>1000000.0</kp>
 			<kd>100.0</kd>
 			<minDepth>0.001</minDepth>
 			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
+			<material>Gazebo/Green</material>
 		</gazebo>
 
 		<gazebo reference="chaster_wheel3">
-			<mu1>0.0</mu1>
-			<mu2>0.0</mu2>
+			<mu1>200.0</mu1>
+			<mu2>200.0</mu2>
 			<kp>1000000.0</kp>
 			<kd>100.0</kd>
 			<minDepth>0.001</minDepth>
 			<maxVel>1.0</maxVel>
-			<material>Gazebo/FlatGray</material>
+			<material>Gazebo/Green</material>
+		</gazebo>
+
+		<gazebo reference="wheel1">
+			<mu1>200.0</mu1>
+			<mu2>200.0</mu2>
+			<kp>1000000.0</kp>
+			<kd>100.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+		</gazebo>
+
+		<gazebo reference="wheel2">
+			<mu1>200.0</mu1>
+			<mu2>200.0</mu2>
+			<kp>1000000.0</kp>
+			<kd>100.0</kd>
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
 		</gazebo>
 
 		<gazebo reference="base_link">
-			<material>Gazebo/Blue</material>
-		</gazebo>
-
-		<gazebo reference="upper_chassis">
-			<material>Gazebo/Turquoise</material>
+			<material>Gazebo/Silver</material>
+			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 		<gazebo reference="motor1">
-			<material>Gazebo/Red</material>
-		</gazebo>
-
-		<gazebo reference="motor2">
-			<material>Gazebo/Red</material>
-		</gazebo>
-
-		<gazebo reference="motor_baglanti_plaka">
-			<material>Gazebo/Yellow</material>
-
-		</gazebo>
-		<gazebo reference="motor_baglanti_plaka2">
-			<material>Gazebo/Yellow</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel1">
-			<material>Gazebo/Green</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel2">
-			<material>Gazebo/Green</material>
-		</gazebo>
-
-		<gazebo reference="chaster_wheel3">
-			<material>Gazebo/Green</material>
+			<material>
+				Gazebo/Black
+				
+			</material>
+			<turnGravityOff>false</turnGravityOff>
 		</gazebo>
 
 
-		<!-- This block connects the wheel joint to an actuator (motor), which informs both
-    simulation and visualization of the robot -->
-		<transmission name="wheel_trans2">
+		<transmission name="front_left_wheel_transmission">
 			<type>transmission_interface/SimpleTransmission</type>
-			<actuator name="wheel_motor2">
-				<mechanicalReduction>21</mechanicalReduction>
-			</actuator>
-			<joint name="$reduktor_joint2">
-				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+			<joint name="reduktor_joint2">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			</joint>
+			<actuator name="front_left_motor">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
 		</transmission>
 
-		<transmission name="wheel_trans1">
+
+		<transmission name="front_left_wheel_transmission">
 			<type>transmission_interface/SimpleTransmission</type>
-			<actuator name="wheel_motor1">
-				<mechanicalReduction>21</mechanicalReduction>
-			</actuator>
 			<joint name="reduktor_joint1">
-				<hardwareInterface>VelocityJointInterface</hardwareInterface>
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
 			</joint>
+			<actuator name="front_left_motor">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
 		</transmission>
 
-		<!-- Gazebo plugin for ROS Control -->
-		<gazebo>
-			<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-				<robotNamespace>/</robotNamespace>
-			</plugin>
-		</gazebo>
-
-		<gazebo>
+		<!-- <gazebo>
 			<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 				<alwaysOn>true</alwaysOn>
 				<updateRate>20</updateRate>
@@ -135,41 +123,20 @@
 				<publishWheelJointState>true</publishWheelJointState>
 				<legacyMode>true</legacyMode>
 			</plugin>
+		</gazebo> -->
+
+		<!-- Ros control for differential drive -->
+		<gazebo>
+			<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+				<robotNamespace>/servicebot</robotNamespace>
+				<!--robotParam>/robot_description</robotParam-->
+				<robotParam>/servicebot/robot_description </robotParam>
+				<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			</plugin>
 		</gazebo>
 
-		<!-- <gazebo reference="laser_sensor_link">
-			<sensor type="gpu_ray" name="laser_sensor">
-				<pose>0 0 0 0 0 0</pose>
-				<visualize>false</visualize>
-				<update_rate>40</update_rate>
-				<ray>
-					<scan>
-						<horizontal>
-							<samples>720</samples>
-							<resolution>1</resolution>
-							<min_angle>-1.570796</min_angle>
-							<max_angle>1.570796</max_angle>
-						</horizontal>
-					</scan>
-					<range>
-						<min>0.10</min>
-						<max>30.0</max>
-						<resolution>0.01</resolution>
-					</range>
-					<noise>
-						<type>gaussian</type>
-						<mean>0.0</mean>
-						<stddev>0.01</stddev>
-					</noise>
-				</ray>
-				<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-					<topicName>/servicebot/laser/scan</topicName>
-					<frameName>laser_sensor_link</frameName>
-				</plugin>
-			</sensor>
-		</gazebo> -->
 		<!--gazebo>
-	    <plugin name="servicebot_controller" filename="libgazebo_ros_servicebot.so">
+	    <plugin name="kobuki_controller" filename="libgazebo_ros_kobuki.so">
 	      <publish_tf>1</publish_tf>
 	      <left_wheel_joint_name>wheel_left_joint</left_wheel_joint_name>
 	      <right_wheel_joint_name>wheel_right_joint</right_wheel_joint_name>

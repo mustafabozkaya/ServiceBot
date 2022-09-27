@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
-  This is not a standalone urdf for servicebot. It simply defines the 'servicebot' tag that can
+  This is not a standalone urdf for kobuki. It simply defines the 'kobuki' tag that can
   be incorporated by other urdf files (e.g. turtlebot).
 
-  See servicebot_standalone.urdf.xacro for a standalone urdf to be tested with
-      servicebot_description/launch/view_model.launch
+  See kobuki_standalone.urdf.xacro for a standalone urdf to be tested with
+      kobuki_description/launch/view_model.launch
  -->
 <robot name="servicebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find service_description)/urdf/common_properties.urdf.xacro" />
@@ -31,45 +31,64 @@
   </material>
 
   <material name="red">
-    <color rgba="1 0 0 1" />
+    <color rgba="0.8 0 0 1" />
   </material>
 
   <material name="green">
-    <color rgba="0 1 0 1" />
+    <color rgba="0 0.8 0 1" />
   </material>
 
   <material name="yellow">
-    <color rgba="1 1 0 1" />
+    <color rgba="0.8 0.8 0 1" />
   </material>
 
   <material name="grey">
     <color rgba="0.5 0.5 0.5 1" />
-
   </material>
 
   <material name="orange">
-    <color rgba="1 0.5 0 1" />
+    <color rgba="0.8 0.5 0 1" />
   </material>
 
   <material name="brown">
     <color rgba="0.5 0.25 0 1" />
   </material>
 
+  <material name="silver">
+    <color rgba="0.75 0.75 0.75 1" />
+  </material>
+
+  <material name="gold">
+    <color rgba="0.75 0.75 0 1" />
+  </material>
+
+  <material name="cyan">
+    <color rgba="0 0.8 0.8 1" />
+  </material>
+
+  <material name="magenta">
+    <color rgba="0.8 0 0.8 1" />
+  </material>
+
   <material name="purple">
     <color rgba="0.5 0 0.5 1" />
   </material>
 
-  <material name="cyan">
-    <color rgba="0 1 1 1" />
+  <material name="pink">
+    <color rgba="0.8 0.5 0.5 1" />
   </material>
 
-  <material name="magenta">
-    <color rgba="1 0 1 1" />
+  <material name="lightblue">
+    <color rgba="0.5 0.5 0.8 1" />
+  </material>
+
+  <material name="bronze">
+    <color rgba="0.8 0.5 0.25 1" />
   </material>
 
 
   <!-- xacro material property -->
-  <!-- servicebot -->
+  <!-- Kobuki -->
   <xacro:macro name="servicebot">
     <link name="base_footprint" />
 
@@ -96,7 +115,7 @@
           <!-- new mesh -->
           <mesh filename="package://service_description/meshes/servis/sase2.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <material name="blue" />
+        <material name="silver" />
         <origin xyz="-0.237 -0.254  -0.281" rpy="0 0 0" />
       </visual>
       <collision>
@@ -110,7 +129,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.01 0 0" />
         <mass value="15" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -126,12 +145,14 @@
       <parent link="base_link" />
       <child link="supan_pole1" />
     </joint>
+
     <link name="supan_pole1">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
+        <material name="purple" />
       </visual>
       <collision>
         <geometry>
@@ -144,7 +165,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.1455 0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -166,6 +187,7 @@
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
+        <material name="purple" />
       </visual>
       <collision>
         <geometry>
@@ -178,7 +200,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="-0.1455 -0.0765  0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -200,6 +222,7 @@
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
+        <material name="purple" />
       </visual>
       <collision>
         <geometry>
@@ -212,7 +235,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="-0.1455 0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -234,6 +257,7 @@
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
+        <material name="purple" />
       </visual>
       <collision>
         <geometry>
@@ -246,7 +270,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.1455 -0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -274,6 +298,7 @@
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.015  0.176 -0.086" rpy="1.5707 0 0" />
+        <material name="gold" />
       </visual>
       <collision>
         <geometry>
@@ -286,7 +311,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -315,6 +340,7 @@
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.015  -0.176 -0.086" rpy="1.5707 0 -3.1415926" />
+        <material name="gold" />
       </visual>
       <collision>
         <geometry>
@@ -327,7 +353,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -355,6 +381,7 @@
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.04 -0.03 0.03" rpy="0 1.57079 0" />
+        <material name="black" />
       </visual>
       <collision>
         <geometry>
@@ -367,7 +394,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -394,6 +421,7 @@
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.04 -0.03 -0.03" rpy="0 -1.57079 0" />
+        <material name="black" />
       </visual>
       <collision>
         <geometry>
@@ -406,7 +434,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -434,6 +462,7 @@
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.013 -0.007 0.007" rpy="0 1.57079 0" />
+        <material name="magenta" />
       </visual>
       <collision>
         <geometry>
@@ -446,7 +475,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -472,6 +501,7 @@
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
+        <material name="magenta" />
       </visual>
       <collision>
         <geometry>
@@ -484,7 +514,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -498,8 +528,8 @@
     <!-- reduktor1 -->
     <joint name="reduktor_joint1" type="continuous">
       <!-- prismatic -->
-      <origin xyz="0.04 0.0 0.0" rpy="0 0 0" />
-      <parent link="reduktor_mil1" />
+      <origin xyz="0.24 0.0 0.0777" rpy="0 0 0" />
+      <parent link="base_link" />
       <child link="reduktor1" />
       <axis xyz="1 0 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
@@ -510,20 +540,21 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="-0.155 -0.073 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <material name="cyan" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="-0.155 -0.073 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -536,8 +567,8 @@
 
     <!-- reduktor2 -->
     <joint name="reduktor_joint2" type="continuous">
-      <origin xyz="-0.04 0.0 0.0" rpy="0 0 0" />
-      <parent link="reduktor_mil2" />
+      <origin xyz="-0.24 0.0 0.0777" rpy="0 0 0" />
+      <parent link="base_link" />
       <child link="reduktor2" />
       <axis xyz="1 0 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
@@ -548,20 +579,21 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.155 -0.073 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <material name="cyan" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.155 -0.073 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -587,22 +619,21 @@
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <material name="green" />
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="-0.155 -0.07 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -628,10 +659,9 @@
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <material name="green" />
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
@@ -643,7 +673,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -656,12 +686,12 @@
 
 
     <!-- Chaster wheel chassis1 -->
-    <joint name="chaster_wheel_chassis_joint1" type="revolute">
+    <joint name="chaster_wheel_chassis_joint1" type="continuous">
       <origin xyz="0.006 -0.198 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis1" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <dynamics damping="0.01" friction="0.0" />
     </joint>
     <link name="chaster_wheel_chassis1">
       <visual>
@@ -669,6 +699,7 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <material name="brown" />
       </visual>
       <collision>
         <geometry>
@@ -681,7 +712,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -693,12 +724,12 @@
     </link>
 
     <!-- Chaster wheel chassis2 -->
-    <joint name="chaster_wheel_chassis_joint2" type="revolute">
+    <joint name="chaster_wheel_chassis_joint2" type="continuous">
       <origin xyz="-0.115 0.156 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis2" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <dynamics damping="0.01" friction="0.0" />
     </joint>
     <link name="chaster_wheel_chassis2">
       <visual>
@@ -706,11 +737,12 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <material name="brown" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
       </collision>
@@ -718,7 +750,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -730,12 +762,12 @@
     </link>
 
     <!-- Chaster wheel chassis3 -->
-    <joint name="chaster_wheel_chassis_joint3" type="revolute">
+    <joint name="chaster_wheel_chassis_joint3" type="continuous">
       <origin xyz="0.115 0.156 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis3" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <dynamics damping="0.01" friction="0.0" />
     </joint>
     <link name="chaster_wheel_chassis3">
       <visual>
@@ -743,6 +775,7 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <material name="brown" />
       </visual>
       <collision>
         <geometry>
@@ -755,7 +788,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -772,7 +805,6 @@
       <parent link="chaster_wheel_chassis1" />
       <child link="chaster_wheel1" />
       <axis xyz="1 0 0" />
-      <dynamics damping="0.1" friction="0.1" />
 
     </joint>
     <link name="chaster_wheel1">
@@ -781,9 +813,7 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <material name="green" />
       </visual>
       <collision>
         <geometry>
@@ -796,7 +826,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -813,7 +843,6 @@
       <parent link="chaster_wheel_chassis2" />
       <child link="chaster_wheel2" />
       <axis xyz="1 0 0" />
-      <dynamics damping="0.1" friction="0.1" />
 
     </joint>
     <link name="chaster_wheel2">
@@ -822,9 +851,7 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <material name="green" />
       </visual>
       <collision>
         <geometry>
@@ -837,7 +864,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -854,7 +881,6 @@
       <parent link="chaster_wheel_chassis3" />
       <child link="chaster_wheel3" />
       <axis xyz=" 1 0 0" />
-      <dynamics damping="0.1" friction="0.1" />
 
     </joint>
     <link name="chaster_wheel3">
@@ -863,9 +889,7 @@
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <material name="green" />
       </visual>
       <collision>
         <geometry>
@@ -878,7 +902,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -903,9 +927,7 @@
           <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.31 -0.32 -0.03" rpy="0 0 0" />
-        <material name="turquoise">
-          <color rgba="0 1 1 1" />
-        </material>
+        <material name="bronze" />
       </visual>
       <collision>
         <geometry>
@@ -918,7 +940,7 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+        <!-- Kobuki's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)

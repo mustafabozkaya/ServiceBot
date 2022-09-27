@@ -40,7 +40,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -180,7 +180,7 @@ Visualization Manager:
         base_link:
           Value: false
         chaster_wheel1:
-          Value: true
+          Value: false
         chaster_wheel2:
           Value: false
         chaster_wheel3:
@@ -192,9 +192,9 @@ Visualization Manager:
         chaster_wheel_chassis3:
           Value: false
         motor1:
-          Value: true
+          Value: false
         motor2:
-          Value: true
+          Value: false
         motor_baglanti_plaka:
           Value: false
         motor_baglanti_plaka2:
@@ -204,9 +204,9 @@ Visualization Manager:
         reduktor2:
           Value: true
         reduktor_mil1:
-          Value: true
+          Value: false
         reduktor_mil2:
-          Value: true
+          Value: false
         supan_pole1:
           Value: false
         supan_pole2:
@@ -239,22 +239,24 @@ Visualization Manager:
             chaster_wheel_chassis3:
               chaster_wheel3:
                 {}
+            reduktor1:
+              wheel1:
+                {}
+            reduktor2:
+              wheel2:
+                {}
             supan_pole1:
               {}
             supan_pole2:
               motor_baglanti_plaka:
                 motor1:
                   reduktor_mil1:
-                    reduktor1:
-                      wheel1:
-                        {}
+                    {}
             supan_pole3:
               motor_baglanti_plaka2:
                 motor2:
                   reduktor_mil2:
-                    reduktor2:
-                      wheel2:
-                        {}
+                    {}
             supan_pole4:
               {}
             upper_chassis:
@@ -273,8 +275,8 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 0.7399120330810547
+      Class: rviz/ThirdPersonFollower
+      Distance: 1.0107486248016357
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -282,17 +284,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.13728518784046173
-        Y: -0.016929302364587784
-        Z: 0.06963095813989639
+        X: -0.1845436692237854
+        Y: -0.03472180292010307
+        Z: -6.810859304096084e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3247978985309601
+      Pitch: 0.13479819893836975
       Target Frame: <Fixed Frame>
-      Yaw: 1.7862579822540283
+      Yaw: 1.2944692373275757
     Saved: ~
 Window Geometry:
   Displays:
