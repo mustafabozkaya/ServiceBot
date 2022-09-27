@@ -1,0 +1,11 @@
+servicebot:
+  gazebo_ros_control:
+    pid_gains:
+      reduktor_joint2:
+        p: 0.06
+        i: 0.0
+        d: 0.0
+      reduktor_joint1:
+        p: 0.06
+        i: 0.0
+        d: 0.0

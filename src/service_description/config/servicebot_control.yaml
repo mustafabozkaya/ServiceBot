@@ -1,0 +1,73 @@
+servicebot:
+  # Settings for ros_control hardware interface
+  hardware_interface:
+     joints:
+        - reduktor_joint1
+        - reduktor_joint2
+          
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+    extra_joints:
+      - name: chaster_wheel_chassis_joint1
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+      - name: chaster_wheel_joint1
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+      - name: chaster_wheel_chassis_joint2
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+      - name: chaster_wheel_joint2
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+      - name: chaster_wheel_chassis_joint3
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+      - name: chaster_wheel_joint3
+        position: 0.01
+        velocity: 0.0
+        effort: 0.0
+
+
+  mobile_base_controller:
+    type: diff_drive_controller/DiffDriveController
+    publish_rate: 50
+
+    left_wheel: 'reduktor_joint2'
+    right_wheel: 'reduktor_joint1'
+
+    # Wheel separation and diameter. These are both optional.
+    # diff_drive_controller will attempt to read either one or both from the
+    # URDF if not specified as a parameter
+    wheel_separation : 0.145
+    wheel_radius : 0.0325
+
+    # Odometry covariances for the encoder output of the robot. These values should
+    # be tuned to your robot's sample odometry data, but these values are a good place
+    # to start
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+
+    # Top level frame (link) of the robot description
+    base_frame_id: base_footprint
+
+    # Velocity and acceleration limits for the robot
+    linear:
+      x:
+        has_velocity_limits    : true
+        max_velocity           : 1.0   # m/s
+        has_acceleration_limits: true
+        max_acceleration       : 0.6   # m/s^2
+    angular:
+      z:
+        has_velocity_limits    : true
+        max_velocity           : 8.0   # rad/s
+        has_acceleration_limits: true
+        max_acceleration       : 6.0   # rad/s^2
