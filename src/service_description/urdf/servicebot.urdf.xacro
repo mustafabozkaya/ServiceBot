@@ -95,9 +95,9 @@
     <joint name="pole_suspan1_joint" type="fixed">
       <origin xyz="0.0765 -0.1455  ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole1" />
+      <child link="suspan_pole1" />
     </joint>
-    <link name="supan_pole1">
+    <link name="suspan_pole1">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -129,9 +129,9 @@
     <joint name="pole_suspan2_joint" type="fixed">
       <origin xyz="-0.0765 0.1455  ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole2" />
+      <child link="suspan_pole2" />
     </joint>
-    <link name="supan_pole2">
+    <link name="suspan_pole2">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -163,9 +163,9 @@
     <joint name="pole_suspan3_joint" type="fixed">
       <origin xyz="-0.0765 -0.1455 ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole3" />
+      <child link="suspan_pole3" />
     </joint>
-    <link name="supan_pole3">
+    <link name="suspan_pole3">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -194,12 +194,12 @@
       </inertial>
     </link>
 
-    <joint name="supan_pole4_joint" type="fixed">
+    <joint name="suspan_pole4_joint" type="fixed">
       <origin xyz="0.0765 0.1455 ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole4" />
+      <child link="suspan_pole4" />
     </joint>
-    <link name="supan_pole4">
+    <link name="suspan_pole4">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -233,7 +233,7 @@
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
       <origin xyz="0.0765 0.0 -0.04" rpy="0 0 ${M_PI_2}" />
-      <parent link="supan_pole2" />
+      <parent link="suspan_pole2" />
       <child link="motor_baglanti_plaka" />
       <!-- <axis xyz="0 0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
@@ -273,7 +273,7 @@
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
       <origin xyz="0.0765 -0.0 -0.04" rpy="0 0 ${M_PI_2}" />
-      <parent link="supan_pole3" />
+      <parent link="suspan_pole3" />
       <child link="motor_baglanti_plaka2" />
       <!-- <axis xyz="0 0.0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
@@ -313,7 +313,7 @@
     <!-- Motor1 -->
     <joint name="motor_joint1" type="fixed">
       <!-- prismatic -->
-      <origin xyz="-0.02 0.0 -0.03" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
+      <origin xyz="-0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
       <parent link="motor_baglanti_plaka" />
       <child link="motor1" />
       <axis xyz="1 0 0" />
@@ -325,14 +325,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.04 -0.03 0.03" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.04 -0.03 0.03" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -352,7 +352,7 @@
     <!-- Motor2 -->
     <joint name="motor_joint2" type="fixed">
       <!-- prismatic -->
-      <origin xyz="0.02 0.0 -0.03" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
+      <origin xyz="0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
       <parent link="motor_baglanti_plaka2" />
       <child link="motor2" />
       <axis xyz="1 0 0" />
@@ -364,14 +364,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.04 -0.03 -0.03" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.04 -0.03 -0.03" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -392,7 +392,7 @@
     <!-- Reductor mil1 -->
     <joint name="reduktor_mil_joint1" type="fixed">
       <!-- prismatic -->
-      <origin xyz="0.058 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0. 0.058 0.0" rpy="0 0 0" />
       <parent link="motor1" />
       <child link="reduktor_mil1" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -404,14 +404,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="-0.013 -0.007 0.007" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="-0.013 -0.007 0.007" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="-0.007 -0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -430,7 +430,7 @@
 
     <!-- Reductor mil2 -->
     <joint name="reduktor_mil_joint2" type="fixed">
-      <origin xyz="-0.058 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0. -0.058 0.0" rpy="0 0 0" />
       <parent link="motor2" />
       <child link="reduktor_mil2" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -442,14 +442,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
+        <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${-M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
+        <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -469,10 +469,10 @@
     <!-- reduktor1 -->
     <joint name="reduktor_joint1" type="continuous">
       <!-- prismatic -->
-      <origin xyz="0.04 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0. 0.04 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil1" />
       <child link="reduktor1" />
-      <axis xyz="1 0 0" />
+      <axis xyz="0 1 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
 
     </joint>
@@ -481,14 +481,17 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.0725 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <material name="bronze">
+          <color rgba="0.8 0.5 0.2 1.0" />
+        </material>
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.0725 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -507,10 +510,10 @@
 
     <!-- reduktor2 -->
     <joint name="reduktor_joint2" type="continuous">
-      <origin xyz="-0.04 0.0 0.0" rpy="0 0 0" />
+      <origin xyz="0.0 -0.04 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil2" />
       <child link="reduktor2" />
-      <axis xyz="1 0 0" />
+      <axis xyz="0 1 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
 
     </joint>
@@ -519,14 +522,17 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.0725 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <material name="bronze">
+          <color rgba="0.8 0.5 0.2 1.0" />
+        </material>
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.0725 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -557,17 +563,18 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.0785 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <material name="green">
+          <color rgba="0 0 1 1" />
+        </material>
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 ${M_PI_2} 0" />
+        <origin xyz="0.0785 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -598,17 +605,18 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.0785 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <material name="green">
+          <color rgba="0 0 1 1" />
+        </material>
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 ${-M_PI_2} 0" />
+        <origin xyz="0.0785 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->

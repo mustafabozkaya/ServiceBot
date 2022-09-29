@@ -46,7 +46,7 @@ Visualization Manager:
       Collision Enabled: false
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -59,57 +59,57 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel_chassis1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel_chassis2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel_chassis3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor_baglanti_plaka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor_baglanti_plaka2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         reduktor1:
           Alpha: 1
           Show Axes: false
@@ -134,32 +134,32 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        supan_pole1:
+          Value: false
+        suspan_pole1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        supan_pole2:
+          Value: false
+        suspan_pole2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        supan_pole3:
+          Value: false
+        suspan_pole3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        supan_pole4:
+          Value: false
+        suspan_pole4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         upper_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         wheel1:
           Alpha: 1
           Show Axes: false
@@ -182,11 +182,11 @@ Visualization Manager:
       Frames:
         All Enabled: false
         base_footprint:
-          Value: false
+          Value: true
         base_link:
           Value: true
         chaster_wheel1:
-          Value: true
+          Value: false
         chaster_wheel2:
           Value: false
         chaster_wheel3:
@@ -200,7 +200,7 @@ Visualization Manager:
         motor1:
           Value: true
         motor2:
-          Value: false
+          Value: true
         motor_baglanti_plaka:
           Value: false
         motor_baglanti_plaka2:
@@ -214,14 +214,14 @@ Visualization Manager:
         reduktor_mil2:
           Value: true
         rplidar_laser_link:
-          Value: true
-        supan_pole1:
           Value: false
-        supan_pole2:
+        suspan_pole1:
           Value: false
-        supan_pole3:
+        suspan_pole2:
           Value: false
-        supan_pole4:
+        suspan_pole3:
+          Value: false
+        suspan_pole4:
           Value: false
         upper_chassis:
           Value: false
@@ -249,23 +249,23 @@ Visualization Manager:
                 {}
             rplidar_laser_link:
               {}
-            supan_pole1:
+            suspan_pole1:
               {}
-            supan_pole2:
+            suspan_pole2:
               motor_baglanti_plaka:
                 motor1:
                   reduktor_mil1:
                     reduktor1:
                       wheel1:
                         {}
-            supan_pole3:
+            suspan_pole3:
               motor_baglanti_plaka2:
                 motor2:
                   reduktor_mil2:
                     reduktor2:
                       wheel2:
                         {}
-            supan_pole4:
+            suspan_pole4:
               {}
             upper_chassis:
               {}
@@ -284,7 +284,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 1.6580803394317627
+      Distance: 0.2214377373456955
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -292,17 +292,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.09003573656082153
-        Y: -0.1425173282623291
-        Z: 1.909183538373327e-06
+        X: -0.01735823228955269
+        Y: -0.1781022548675537
+        Z: -1.4901161193847656e-08
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.589798092842102
+      Pitch: 0.3053988218307495
       Target Frame: <Fixed Frame>
-      Yaw: 1.1593581438064575
+      Yaw: 1.555389404296875
     Saved: ~
 Window Geometry:
   Displays:
