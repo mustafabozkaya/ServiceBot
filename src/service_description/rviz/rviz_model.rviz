@@ -110,22 +110,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        reduktor1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        reduktor2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         reduktor_mil1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         reduktor_mil2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        reduktorteker1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        reduktorteker2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -160,6 +160,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        wheel1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -174,7 +184,7 @@ Visualization Manager:
         base_footprint:
           Value: false
         base_link:
-          Value: false
+          Value: true
         chaster_wheel1:
           Value: true
         chaster_wheel2:
@@ -195,13 +205,13 @@ Visualization Manager:
           Value: false
         motor_baglanti_plaka2:
           Value: false
+        reduktor1:
+          Value: true
+        reduktor2:
+          Value: true
         reduktor_mil1:
           Value: true
         reduktor_mil2:
-          Value: true
-        reduktorteker1:
-          Value: true
-        reduktorteker2:
           Value: true
         rplidar_laser_link:
           Value: true
@@ -215,6 +225,10 @@ Visualization Manager:
           Value: false
         upper_chassis:
           Value: false
+        wheel1:
+          Value: true
+        wheel2:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 0.4000000059604645
       Name: TF
@@ -233,10 +247,6 @@ Visualization Manager:
             chaster_wheel_chassis3:
               chaster_wheel3:
                 {}
-            reduktorteker1:
-              {}
-            reduktorteker2:
-              {}
             rplidar_laser_link:
               {}
             supan_pole1:
@@ -245,12 +255,16 @@ Visualization Manager:
               motor_baglanti_plaka:
                 motor1:
                   reduktor_mil1:
-                    {}
+                    reduktor1:
+                      wheel1:
+                        {}
             supan_pole3:
               motor_baglanti_plaka2:
                 motor2:
                   reduktor_mil2:
-                    {}
+                    reduktor2:
+                      wheel2:
+                        {}
             supan_pole4:
               {}
             upper_chassis:
@@ -270,7 +284,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 1.0720356702804565
+      Distance: 1.6580803394317627
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -278,17 +292,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.09544256329536438
-        Y: -0.514222264289856
+        X: -0.09003573656082153
+        Y: -0.1425173282623291
         Z: 1.909183538373327e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.07479850202798843
+      Pitch: 0.589798092842102
       Target Frame: <Fixed Frame>
-      Yaw: 1.5043578147888184
+      Yaw: 1.1593581438064575
     Saved: ~
 Window Geometry:
   Displays:
