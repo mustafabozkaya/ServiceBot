@@ -7,8 +7,12 @@
       servicebot_description/launch/view_model.launch
  -->
 <robot name="servicebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find service_description)/urdf/common_properties.urdf.xacro" />
-  <xacro:include filename="$(find service_description)/urdf/servicebot_gazebo.urdf.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacros/common_properties.urdf.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacros/servicebot_gazebo.urdf.xacro" />
+  <!-- Depth camera -->
+  <xacro:include filename="$(find service_description)/urdf/xacros/depth_camera.xacro" />
+  <!-- IMU -->
+  <xacro:include filename="$(find service_description)/urdf/xacros/imu.xacro" />
 
   <xacro:property name="width" value="0.2" />
   <xacro:property name="leglen" value="0.6" />
@@ -481,7 +485,7 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0725 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
         <material name="bronze">
           <color rgba="0.8 0.5 0.2 1.0" />
         </material>
@@ -491,7 +495,7 @@
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0725 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -522,7 +526,7 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0725 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
         <material name="bronze">
           <color rgba="0.8 0.5 0.2 1.0" />
         </material>
@@ -532,7 +536,7 @@
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0725 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -563,7 +567,7 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0785 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
         <material name="green">
           <color rgba="0 0 1 1" />
         </material>
@@ -574,7 +578,7 @@
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0785 -0.155 ${0.0725 + 0.0105}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -605,7 +609,7 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0785 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
         <material name="green">
           <color rgba="0 0 1 1" />
         </material>
@@ -616,7 +620,7 @@
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.0785 0.155 -${0.0725 + 0.0095}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -839,6 +843,7 @@
     <link name="chaster_wheel3">
       <visual>
         <geometry>
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
@@ -849,6 +854,7 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
@@ -879,6 +885,7 @@
     <link name="upper_chassis">
       <visual>
         <geometry>
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
@@ -886,6 +893,7 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
@@ -932,8 +940,22 @@
       <parent link="base_link" />
       <child link="rplidar_laser_link" />
       <origin rpy="0 0 -${2*M_PI_4}" xyz="0.18 0.0  0.25" />
-
     </joint>
+
+    <!-- Depth Camera up-->
+    <xacro:depth_camera name="cameraup" parent="upper_chassis">
+      <origin xyz="0.228  -0.035   0.921" rpy="0 ${M_PI_4} 0" />
+    </xacro:depth_camera>
+
+    <!-- Depth Camera down-->
+    <xacro:depth_camera name="cameradown" parent="base_link">
+      <origin xyz="0.228 -0.035  0.094" rpy="0 -${M_PI_4} 0" />
+    </xacro:depth_camera>
+
+    <!-- imu -->
+    <xacro:imu name="imu" parent="base_link">
+      <origin xyz=" 0.128 0.02  0.19" rpy="0 0 0" />
+    </xacro:imu>
 
 
     <!-- gazebo simulation plugin -->

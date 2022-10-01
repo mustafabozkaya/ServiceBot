@@ -4,10 +4,10 @@
  -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- General -->
-  <xacro:include filename="$(find service_description)/urdf/common_properties.urdf.xacro" />
-  <xacro:include filename="$(find service_description)/urdf/servicebot_properties.urdf.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacros/common_properties.urdf.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacros/servicebot_properties.urdf.xacro" />
   <!-- Bases -->
-  <xacro:include filename="$(find service_description)/urdf/servicebot.urdf.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacros/servicebot.urdf.xacro" />
   <!-- Stacks
     <xacro:include filename="$(find kobuki_description)/urdf/stacks/circles.urdf.xacro" />
     <xacro:include filename="$(find kobuki_description)/urdf/stacks/hexagons.urdf.xacro" />
