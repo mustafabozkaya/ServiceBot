@@ -46,7 +46,7 @@ Visualization Manager:
       Collision Enabled: false
       Enabled: true
       Links:
-        All Links Enabled: false
+        All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -59,57 +59,88 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
+        cameradown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cameradown_link_gazebo:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameradown_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cameraup_link_gazebo:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         chaster_wheel1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         chaster_wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         chaster_wheel3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         chaster_wheel_chassis1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         chaster_wheel_chassis2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         chaster_wheel_chassis3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         motor1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         motor2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         motor_baglanti_plaka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         motor_baglanti_plaka2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         reduktor1:
           Alpha: 1
           Show Axes: false
@@ -134,42 +165,42 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         suspan_pole1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         suspan_pole2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         suspan_pole3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         suspan_pole4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         upper_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         wheel1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -180,51 +211,65 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: false
+        All Enabled: true
         base_footprint:
           Value: true
         base_link:
           Value: true
+        cameradown_link:
+          Value: true
+        cameradown_link_gazebo:
+          Value: true
+        cameradown_link_optical:
+          Value: true
+        cameraup_link:
+          Value: true
+        cameraup_link_gazebo:
+          Value: true
+        cameraup_link_optical:
+          Value: true
         chaster_wheel1:
-          Value: false
+          Value: true
         chaster_wheel2:
-          Value: false
+          Value: true
         chaster_wheel3:
-          Value: false
+          Value: true
         chaster_wheel_chassis1:
-          Value: false
+          Value: true
         chaster_wheel_chassis2:
-          Value: false
+          Value: true
         chaster_wheel_chassis3:
-          Value: false
+          Value: true
+        imu_link:
+          Value: true
         motor1:
-          Value: false
+          Value: true
         motor2:
-          Value: false
+          Value: true
         motor_baglanti_plaka:
-          Value: false
+          Value: true
         motor_baglanti_plaka2:
-          Value: false
+          Value: true
         reduktor1:
           Value: true
         reduktor2:
           Value: true
         reduktor_mil1:
-          Value: false
+          Value: true
         reduktor_mil2:
-          Value: false
+          Value: true
         rplidar_laser_link:
-          Value: false
+          Value: true
         suspan_pole1:
-          Value: false
+          Value: true
         suspan_pole2:
-          Value: false
+          Value: true
         suspan_pole3:
-          Value: false
+          Value: true
         suspan_pole4:
-          Value: false
+          Value: true
         upper_chassis:
-          Value: false
+          Value: true
         wheel1:
           Value: true
         wheel2:
@@ -238,6 +283,11 @@ Visualization Manager:
       Tree:
         base_footprint:
           base_link:
+            cameradown_link:
+              cameradown_link_gazebo:
+                {}
+              cameradown_link_optical:
+                {}
             chaster_wheel_chassis1:
               chaster_wheel1:
                 {}
@@ -247,6 +297,8 @@ Visualization Manager:
             chaster_wheel_chassis3:
               chaster_wheel3:
                 {}
+            imu_link:
+              {}
             rplidar_laser_link:
               {}
             suspan_pole1:
@@ -268,7 +320,11 @@ Visualization Manager:
             suspan_pole4:
               {}
             upper_chassis:
-              {}
+              cameraup_link:
+                cameraup_link_gazebo:
+                  {}
+                cameraup_link_optical:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -284,7 +340,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 0.21515414118766785
+      Distance: 1.3263802528381348
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -292,17 +348,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.01531726773828268
-        Y: 0.27915874123573303
-        Z: -1.6924202554946532e-06
+        X: 0.034106411039829254
+        Y: 0.06916199624538422
+        Z: -1.7520249002700439e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.35039904713630676
+      Pitch: 0.4553990364074707
       Target Frame: <Fixed Frame>
-      Yaw: 4.560367107391357
+      Yaw: 5.630382061004639
     Saved: ~
 Window Geometry:
   Displays:
@@ -315,4 +371,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 476
-  Y: 92
+  Y: 27

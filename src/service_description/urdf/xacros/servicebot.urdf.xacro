@@ -11,31 +11,10 @@
   <xacro:include filename="$(find service_description)/urdf/xacros/servicebot_gazebo.urdf.xacro" />
   <!-- Depth camera -->
   <xacro:include filename="$(find service_description)/urdf/xacros/depth_camera.xacro" />
+  <!-- IMU -->
   <xacro:include filename="$(find service_description)/urdf/xacros/imu.xacro" />
 
-
-  <material name="blue">
-    <color rgba="0 0 0.8 1" />
-  </material>
-
-  <material name="black">
-    <color rgba="0 0 0 1" />
-  </material>
-
-  <material name="dark_grey">
-    <color rgba="0.2 0.2 0.2 1" />
-  </material>
-  <material name="white">
-    <color rgba="1 1 1 1" />
-  </material>
-
-  <material name="red">
-    <color rgba="1 0 0 1" />
-  </material>
-
-  <material name="green">
-    <color rgba="0 1 0 1" />
-  </material>
+  <xacro:property name="width" value="0.2" />
 
 
   <!-- xacro material property -->
@@ -66,15 +45,17 @@
           <!-- new mesh -->
           <mesh filename="package://service_description/meshes/servis/sase2.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <material name="blue" />
-        <origin xyz="-0.237 -0.254  -0.281" rpy="0 0 0" />
+        <material name="silver">
+          <color rgba="0.8 0.8 0.8 1.0" />
+        </material>
+        <origin xyz="-0.254 0.237  -0.281" rpy="0 0 -${pi/2}" />
       </visual>
       <collision>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/sase2.STL" scale="0.001 0.001 0.001" />
           <!-- <cylinder length="0.16" radius="0.26" /> -->
         </geometry>
-        <origin xyz="-0.237 -0.254  -0.281" rpy="0 0 0" />
+        <origin xyz="-0.254 0.237  -0.281" rpy="0 0 -${pi/2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -92,11 +73,11 @@
     </link>
 
     <joint name="pole_suspan1_joint" type="fixed">
-      <origin xyz="-0.0765 -0.1455  ${0.142+0.0056}" rpy="0 0 0" />
+      <origin xyz="0.0765 -0.1455  ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole1" />
+      <child link="suspan_pole1" />
     </joint>
-    <link name="supan_pole1">
+    <link name="suspan_pole1">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -126,11 +107,11 @@
     </link>
 
     <joint name="pole_suspan2_joint" type="fixed">
-      <origin xyz="0.0765 0.1455  ${0.142+0.0056}" rpy="0 0 0" />
+      <origin xyz="-0.0765 0.1455  ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole2" />
+      <child link="suspan_pole2" />
     </joint>
-    <link name="supan_pole2">
+    <link name="suspan_pole2">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -160,11 +141,11 @@
     </link>
 
     <joint name="pole_suspan3_joint" type="fixed">
-      <origin xyz=" 0.0765  -0.1455 ${0.142+0.0056}" rpy="0 0 0" />
+      <origin xyz="-0.0765 -0.1455 ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole3" />
+      <child link="suspan_pole3" />
     </joint>
-    <link name="supan_pole3">
+    <link name="suspan_pole3">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -193,12 +174,12 @@
       </inertial>
     </link>
 
-    <joint name="supan_pole4_joint" type="fixed">
-      <origin xyz=" -0.0765 0.1455 ${0.142+0.0056}" rpy="0 0 0" />
+    <joint name="suspan_pole4_joint" type="fixed">
+      <origin xyz="0.0765 0.1455 ${0.142+0.0056}" rpy="0 0 0" />
       <parent link="base_link" />
-      <child link="supan_pole4" />
+      <child link="suspan_pole4" />
     </joint>
-    <link name="supan_pole4">
+    <link name="suspan_pole4">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
@@ -231,8 +212,8 @@
     <joint name="motor_baglanti_plaka_joint1" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
-      <origin xyz="-0.0765 0  -0.04" rpy="0 0 0 " />
-      <parent link="supan_pole2" />
+      <origin xyz="0.0765 0.0 -0.04" rpy="0 0 ${M_PI_2}" />
+      <parent link="suspan_pole2" />
       <child link="motor_baglanti_plaka" />
       <!-- <axis xyz="0 0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
@@ -271,8 +252,8 @@
     <joint name="motor_baglanti_plaka_joint2" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
-      <origin xyz="-0.0765 0  -0.04" rpy="0 0 0 " />
-      <parent link="supan_pole3" />
+      <origin xyz="0.0765 -0.0 -0.04" rpy="0 0 ${M_PI_2}" />
+      <parent link="suspan_pole3" />
       <child link="motor_baglanti_plaka2" />
       <!-- <axis xyz="0 0.0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
@@ -284,14 +265,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.015  -0.176 -0.086" rpy="1.5707 0 -3.1415926" />
+        <origin xyz="0.015  -0.176 -0.086" rpy="1.5707 0 ${-M_PI}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.015 -0.176 -0.086" rpy="1.5707 0 3.1415926" />
+        <origin xyz="0.015 -0.176 -0.086" rpy="1.5707 0 ${M_PI}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -312,7 +293,7 @@
     <!-- Motor1 -->
     <joint name="motor_joint1" type="fixed">
       <!-- prismatic -->
-      <origin xyz=" 0.0 -0.02 -0.03" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
+      <origin xyz="-0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
       <parent link="motor_baglanti_plaka" />
       <child link="motor1" />
       <axis xyz="1 0 0" />
@@ -324,14 +305,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.04 -0.03 0.03" rpy="0 1.57079 0" />
+        <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.04 -0.03 0.03" rpy="0 1.57079 0" />
+        <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -351,7 +332,7 @@
     <!-- Motor2 -->
     <joint name="motor_joint2" type="fixed">
       <!-- prismatic -->
-      <origin xyz=" 0.0 0.02 -0.03" rpy="0 0 0" /> <!-- visual and collision, joint shift -->
+      <origin xyz="0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
       <parent link="motor_baglanti_plaka2" />
       <child link="motor2" />
       <axis xyz="1 0 0" />
@@ -363,14 +344,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.04 -0.03 -0.03" rpy="0 -1.57079 0" />
+        <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.04 -0.03 -0.03" rpy="0 -1.57079 0" />
+        <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -391,7 +372,7 @@
     <!-- Reductor mil1 -->
     <joint name="reduktor_mil_joint1" type="fixed">
       <!-- prismatic -->
-      <origin xyz=" 0.0 0.058 0.0" rpy="0 0 0" />
+      <origin xyz="0. 0.058 0.0" rpy="0 0 0" />
       <parent link="motor1" />
       <child link="reduktor_mil1" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -403,14 +384,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="-0.013 -0.007 0.007" rpy="0 1.57079 0" />
+        <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="-0.013 -0.007 0.007" rpy="0 1.57079 0" />
+        <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -429,7 +410,7 @@
 
     <!-- Reductor mil2 -->
     <joint name="reduktor_mil_joint2" type="fixed">
-      <origin xyz="0.0 -0.058  0.0" rpy="0 0 0" />
+      <origin xyz="0. -0.058 0.0" rpy="0 0 0" />
       <parent link="motor2" />
       <child link="reduktor_mil2" />
       <!-- <axis xyz="1 0 0" /> -->
@@ -441,14 +422,14 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
+        <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${-M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
         </geometry>
-        <origin xyz="0.013 -0.007 -0.007" rpy="0 -1.57079 0" />
+        <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -468,7 +449,7 @@
     <!-- reduktor1 -->
     <joint name="reduktor_joint1" type="continuous">
       <!-- prismatic -->
-      <origin xyz=" 0.0 0.04 0.0" rpy="0 0 0" />
+      <origin xyz="0. 0.04 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil1" />
       <child link="reduktor1" />
       <axis xyz="0 1 0" />
@@ -480,14 +461,15 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <xacro:bronze />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.0725 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -506,7 +488,7 @@
 
     <!-- reduktor2 -->
     <joint name="reduktor_joint2" type="continuous">
-      <origin xyz=" 0.0  -0.04 0.0" rpy="0 0 0" />
+      <origin xyz="0.0 -0.04 0.0" rpy="0 0 0" />
       <parent link="reduktor_mil2" />
       <child link="reduktor2" />
       <axis xyz="0 1 0" />
@@ -518,14 +500,15 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <xacro:bronze />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.0725 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -556,17 +539,16 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+        <xacro:green />
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" />
+        <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -597,17 +579,16 @@
         <geometry>
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
+        <xacro:green />
       </visual>
-      <material name="green">
-        <color rgba="0 0 1 1" />
-      </material>
+
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" />
+        <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -627,25 +608,25 @@
 
     <!-- Chaster wheel chassis1 -->
     <joint name="chaster_wheel_chassis_joint1" type="revolute">
-      <origin xyz=" -0.198 0.006 0.047" rpy="0 0 0 " />
+      <origin xyz="-0.198 -0.01 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis1" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis1">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz=" -0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <origin xyz=" -0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -664,25 +645,25 @@
 
     <!-- Chaster wheel chassis2 -->
     <joint name="chaster_wheel_chassis_joint2" type="revolute">
-      <origin xyz=" 0.156 -0.115 0.047" rpy="0 0 0 " />
+      <origin xyz="0.156 -0.115 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis2" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis2">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -701,25 +682,25 @@
 
     <!-- Chaster wheel chassis3 -->
     <joint name="chaster_wheel_chassis_joint3" type="revolute">
-      <origin xyz=" 0.156 0.115 0.047" rpy="0 0 0 " />
+      <origin xyz="0.156 0.115 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="chaster_wheel_chassis3" />
       <axis xyz="0 0 1" />
-      <limit lower="-3.1415926" upper="3.1415926" effort="100" velocity="0.1" />
+      <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
     </joint>
     <link name="chaster_wheel_chassis3">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" />
+        <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.03 0.03 -0.035 " rpy="1.57079 0 0" />
+        <origin xyz="-0.03 -0.03 -0.035 " rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -738,7 +719,7 @@
 
     <!-- chaster wheel1 -->
     <joint name="chaster_wheel_joint1" type="continuous">
-      <origin xyz=" -0.025 0.0  -0.027" rpy="0 0 0 " />
+      <origin xyz="0.025 -0.0 -0.027" rpy="0 0 0 " />
       <parent link="chaster_wheel_chassis1" />
       <child link="chaster_wheel1" />
       <axis xyz="0 1 0" />
@@ -750,17 +731,15 @@
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
+        <xacro:green />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -779,7 +758,7 @@
 
     <!-- chaster wheel2 -->
     <joint name="chaster_wheel_joint2" type="continuous">
-      <origin xyz=" -0.025 0.0  -0.027" rpy="0 0 0 " />
+      <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
       <parent link="chaster_wheel_chassis2" />
       <child link="chaster_wheel2" />
       <axis xyz="0 1 0" />
@@ -791,17 +770,15 @@
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
+        <xacro:green />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -820,29 +797,29 @@
 
     <!-- chaster wheel3 -->
     <joint name="chaster_wheel_joint3" type="continuous">
-      <origin xyz=" -0.025 0.0  -0.027" rpy="0 0 0 " />
+      <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
       <parent link="chaster_wheel_chassis3" />
       <child link="chaster_wheel3" />
-      <axis xyz=" 1 0 0" />
+      <axis xyz=" 0 1 0" />
       <dynamics damping="0.1" friction="0.1" />
 
     </joint>
     <link name="chaster_wheel3">
       <visual>
         <geometry>
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
+        <xacro:green />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" />
+        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -862,7 +839,7 @@
 
     <!-- upper chassis -->
     <joint name="upper_chassis_joint" type="fixed">
-      <origin xyz="0.0 0.0 0.3" rpy="0 0 0 " />
+      <origin xyz="0.0 0.0 0.25" rpy="0 0 0 " />
       <parent link="base_link" />
       <child link="upper_chassis" />
 
@@ -870,19 +847,18 @@
     <link name="upper_chassis">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 ${pi}" />
-        <material name="light_blue">
-          <color rgba="0 0 1 0.5" />
-        </material>
+        <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
         </geometry>
-        <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0" />
+        <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
       </collision>
       <inertial>
         <!-- COM experimentally determined -->
@@ -899,20 +875,6 @@
       </inertial>
     </link>
 
-    <!-- Depth Camera up-->
-    <xacro:depth_camera name="cameraup" parent="upper_chassis">
-      <origin xyz="0.228  -0.035   0.921" rpy="0 ${M_PI_4} 0" />
-    </xacro:depth_camera>
-
-    <!-- Depth Camera down-->
-    <xacro:depth_camera name="cameradown" parent="base_link">
-      <origin xyz="0.228 -0.035  0.094" rpy="0 -${M_PI_4} 0" />
-    </xacro:depth_camera>
-
-    <!-- imu -->
-    <xacro:imu name="imu" parent="base_link">
-      <origin xyz=" 0.128 0.02  0.19" rpy="0 0 0" />
-    </xacro:imu>
     <!-- Rplidar-->
     <link name="rplidar_laser_link">
       <visual>
@@ -920,7 +882,9 @@
         <geometry>
           <mesh filename="package://service_description/meshes/sensors/rplidar-a2.stl" />
         </geometry>
-        <material name="dark_grey" />
+        <material name="dark_grey">
+          <color rgba="0.2 0.2 0.2 1.0" />
+        </material>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0" />
@@ -939,9 +903,23 @@
     <joint name="rplidar_laser_joint" type="fixed">
       <parent link="base_link" />
       <child link="rplidar_laser_link" />
-      <origin rpy="0 0 0" xyz="0.18 0.0  0.25" />
-      <axis xyz="0 1 0" />
+      <origin rpy="0 0 -${2*M_PI_4}" xyz="0.18 0.0  0.25" />
     </joint>
+
+    <!-- Depth Camera up-->
+    <xacro:depth_camera name="cameraup" parent="upper_chassis">
+      <origin xyz="0.228  -0.035   0.921" rpy="0 ${M_PI_4} 0" />
+    </xacro:depth_camera>
+
+    <!-- Depth Camera down-->
+    <xacro:depth_camera name="cameradown" parent="base_link">
+      <origin xyz="0.228 -0.035  0.094" rpy="0 -${M_PI_4} 0" />
+    </xacro:depth_camera>
+
+    <!-- imu -->
+    <xacro:imu name="imu" parent="base_link">
+      <origin xyz=" 0.128 0.00  0.19" rpy="0 0 0" />
+    </xacro:imu>
 
 
     <!-- gazebo simulation plugin -->

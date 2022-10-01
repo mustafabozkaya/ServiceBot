@@ -2,13 +2,7 @@
 
 <robot name="servicebot_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<xacro:property name="pi" value="3.1415926535897931" /> <!-- 180 deg -->
-	<xacro:property name="pi_2" value="${pi/2.0}" /> <!-- 90 deg -->
-	<xacro:property name="pi_4" value="${pi/4.0}" /> <!-- 45 deg -->
-	<xacro:property name="pi_6" value="${pi/6.0}" /> <!-- 30 deg -->
-	<xacro:property name="pi_8" value="${pi/8.0}" /> <!-- 22.5 deg -->
-	<xacro:property name="deg2rad" value="${pi/180.0}" /> <!-- 0.017453292519943295 rad -->
-	<xacro:property name="rad2deg" value="${180.0/pi}" /> <!-- 57.295779513082323 deg-->
+	
 
 	<xacro:macro name="servicebot_sim">
 		<gazebo reference="reduktor1">
