@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot name="servicebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find service_description_clean)/xacro/components/base_link.xacro" />
+    <xacro:include filename="$(find service_description_clean)/xacro/components/wheel.xacro" />
+    <xacro:include filename="$(find service_description_clean)/xacro/components/lidar.xacro" />
+    <xacro:include filename="$(find service_description_clean)/xacro/components/imu.xacro" />
+    <xacro:include filename="$(find service_description_clean)/xacro/components/camera.xacro" />
+
+    <!-- Base Macro-->
+    <xacro:base_link name="base_link" parent="base_footprint">
+        <origin xyz="0 0 0.01" rpy="0 0 0" />
+    </xacro:base_link>
+
+
+    <!-- Wheels -->
+    <xacro:wheel name="right_wheel" parent="base_link">
+        <origin xyz="0 -0.205  0" rpy="0 0 0" />
+    </xacro:wheel>
+
+    <xacro:wheel name="left_wheel" parent="base_link">
+        <origin xyz="0 0.205  0" rpy="0 0 0" />
+    </xacro:wheel>
+
+    <!-- Lidar -->
+    <xacro:lidar name="lidar" parent="base_link">
+        <origin xyz="0.172 0 0.16" rpy="0 0 0" />
+    </xacro:lidar>
+
+    <!-- IMU -->
+    <xacro:imu name="imu" parent="base_link">
+        <origin xyz="0.118 0 0.142" rpy="0 0 0" />
+    </xacro:imu>
+
+    <!-- Camera -->
+    <xacro:camera name="top_camera" parent="base_link">
+        <origin xyz="0.2 0 1" rpy="0 0.2 0" />
+    </xacro:camera>
+
+    <xacro:camera name="bottom_camera" parent="base_link">
+        <origin xyz="0.2 0 0.3" rpy="0 -0.2 0" />
+    </xacro:camera>
+
+</robot>

@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!--
+  Various useful properties such as constants and materials 
+ -->
+<robot name="xacro_properties" xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="M_PI_2" value="1.5707963267948966" />
+  <xacro:property name="M_PI_4" value="0.7853981633974483" />
+
+  <xacro:property name="pi" value="3.1415926535897931" /> <!-- 180 deg -->
+  <xacro:property name="pi_2" value="${pi/2.0}" /> <!-- 90 deg -->
+  <xacro:property name="pi_4" value="${pi/4.0}" /> <!-- 45 deg -->
+  <xacro:property name="pi_6" value="${pi/6.0}" /> <!-- 30 deg -->
+  <xacro:property name="pi_8" value="${pi/8.0}" /> <!-- 22.5 deg -->
+  <xacro:property name="deg2rad" value="${pi/180.0}" /> <!-- 0.017453292519943295 rad -->
+  <xacro:property name="rad2deg" value="${180.0/pi}" /> <!-- 57.295779513082323 deg-->
+
+  <!-- use xacro insert="..." to insert a macro into a link or joint -->
+  <xacro:macro name="bronze">
+    <material name="bronze">
+      <color rgba="0.8 0.5 0.2 1.0" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="silver">
+    <material name="silver">
+      <color rgba="0.9 0.9 0.9 1.0" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="dark_grey">
+    <material>
+      <color rgba="0.3 0.3 0.3 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_light_blue">
+    <material name="light_blue">
+      <color rgba="0.0 0.5 1.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_green">
+    <material name="light_green">
+      <color rgba="0.0 1.0 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_red">
+    <material name="light_red">
+      <color rgba="1.0 0.0 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_yellow">
+    <material name="light_yellow">
+      <color rgba="1.0 1.0 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_purple">
+    <material name="light_purple">
+      <color rgba="0.5 0.0 0.5 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_brown">
+    <material name="light_brown">
+      <color rgba="0.5 0.25 0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_pink">
+    <material name="light_pink">
+      <color rgba="1.0 0.5 0.5 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_light_cyan">
+    <material name="light_cyan">
+      <color rgba="0.0 1.0 1.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_white">
+    <material name="white">
+      <color rgba="1 1 1 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_grey">
+    <material name="grey">
+      <color rgba="0.5 0.5 0.5 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_light_grey">
+    <material name="light_grey">
+      <color rgba="0.6 0.6 0.6 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_dark_grey">
+    <material name="dark_grey">
+      <color rgba="0.3 0.3 0.3 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_black">
+    <material name="black">
+      <color rgba="0.1 0.1 0.1 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_red">
+    <material name="red">
+      <color rgba="1 0 0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_green">
+    <material name="green">
+      <color rgba="0.0 0.8 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_blue">
+    <material name="blue">
+      <color rgba="0.0 0.0 1.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_grey_blue">
+    <material name="grey_blue">
+      <color rgba="0.4 0.4 1.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_orange">
+    <material name="orange">
+      <color rgba="1.0 0.7 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_yellow">
+    <material name="yellow">
+      <color rgba="1.0 1.0 0.0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_purple">
+    <material name="purple">
+      <color rgba="0.5 0.0 0.5 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_brown">
+    <material name="brown">
+      <color rgba="0.5 0.25 0 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_pink">
+    <material name="pink">
+      <color rgba="1.0 0.5 0.5 1" />
+    </material>
+  </xacro:macro>
+  <xacro:macro name="material_cyan">
+    <material name="cyan">
+      <color rgba="0.0 1.0 1.0 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="blue">
+    <material name="blue">
+      <color rgba="0 0 0.8 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="black">
+    <material name="black">
+      <color rgba="0 0 0 1" />
+    </material>
+
+  </xacro:macro>
+
+  <xacro:macro name="white">
+    <material name="white">
+      <color rgba="1 1 1 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="red">
+    <material name="red">
+      <color rgba="1 0 0 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="green">
+    <material name="green">
+      <color rgba="0 1 0 1" />
+    </material>
+
+  </xacro:macro>
+
+  <xacro:macro name="yellow">
+    <material name="yellow">
+      <color rgba="1 1 0 1" />
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="grey">
+    <material name="grey">
+      <color rgba="0.5 0.5 0.5 1" />
+    </material>
+
+  </xacro:macro>
+
+  <xacro:macro name="white">
+    <material name="white">
+      <color rgba="1 1 1 1" />
+    </material>
+
+  </xacro:macro>
+
+  <xacro:macro name="black">
+    <material name="black">
+      <color rgba="0 0 0 1" />
+    </material>
+  </xacro:macro>
+</robot>

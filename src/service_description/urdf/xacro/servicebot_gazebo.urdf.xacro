@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+
+<robot name="servicebot_sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+	<xacro:macro name="servicebot_sim">
+		<gazebo reference="base_link">
+			<material>Gazebo/Blue</material>
+		</gazebo>
+
+		<gazebo reference="reduktorteker1">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<maxForce>1000.0</maxForce>
+			<material>Gazebo/Green</material>
+
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="reduktorteker2">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+
+		<gazebo reference="chaster_wheel1">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="chaster_wheel2">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="chaster_wheel3">
+			<mu1 value="200.0" />
+			<mu2 value="100.0" />
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<minDepth>0.001</minDepth>
+			<maxVel>1.0</maxVel>
+			<material>Gazebo/Green</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
+
+
+		<gazebo reference="upper_chassis">
+			<material>Gazebo/Turquoise</material>
+		</gazebo>
+
+		<gazebo reference="motor1">
+			<material>Gazebo/Red</material>
+		</gazebo>
+
+		<gazebo reference="motor2">
+			<material>Gazebo/Red</material>
+		</gazebo>
+
+		<gazebo reference="motor_baglanti_plaka">
+			<material>Gazebo/Yellow</material>
+
+		</gazebo>
+		<gazebo reference="motor_baglanti_plaka2">
+			<material>Gazebo/Yellow</material>
+		</gazebo>
+
+
+		<!-- This block connects the wheel joint to an actuator (motor), which informs both
+    simulation and visualization of the robot -->
+		<transmission name="wheel_trans2">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="wheel_motor2">
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+			<joint name="reduktor_joint2">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
+		</transmission>
+
+		<transmission name="wheel_trans1">
+			<type>transmission_interface/SimpleTransmission</type>
+			<actuator name="wheel_motor1">
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+			<joint name="reduktor_joint1">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
+		</transmission>
+
+		<!-- Gazebo plugin for ROS Control -->
+		<!-- Ros control for differential drive -->
+		<gazebo>
+			<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+				<robotNamespace>/servicebot</robotNamespace>
+				<robotParam>/servicebot/robot_description </robotParam>
+				<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			</plugin>
+		</gazebo>
+
+		<gazebo reference="rplidar_laser_link">
+			<material>Gazebo/Grey</material>
+		</gazebo>
+		<!-- rplidar gazebo references -->
+		<gazebo reference="rplidar_laser_link">
+			<!-- type is either gpu_laser or laser -->
+			<sensor name="head_rplidar_sensor" type="ray">
+				<pose>0 0 0 0 0 0</pose>
+				<visualize>true</visualize>
+				<update_rate>12</update_rate>
+				<ray>
+					<scan>
+						<horizontal>
+							<samples>720</samples>
+							<resolution>1</resolution>
+							<min_angle>
+								<!-- use xacro property pi_2 -->
+								${pi_6}
+							</min_angle>
+							<max_angle>${5*pi_6}</max_angle>
+						</horizontal>
+					</scan>
+					<range>
+						<min>0.15</min>
+						<max>10.0</max>
+						<resolution>0.01</resolution>
+					</range>
+					<noise>
+						<type>gaussian</type>
+						<!--Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+						<mean>0.0</mean>
+						<stddev>0.01</stddev>
+					</noise>
+				</ray>
+				<!-- plugin_name is either libgazebo_ros_laser.so or libgazebo_ros_gpu_laser.so-->
+				<plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
+					<topicName>/servicebot/scan</topicName>
+					<frameName>rplidar_laser_link</frameName>
+				</plugin>
+			</sensor>
+		</gazebo>
+		<!-- <gazebo>
+			<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>20</updateRate>
+				<leftJoint>reduktor_joint2</leftJoint>
+				<rightJoint>reduktor_joint2</rightJoint>
+				<wheelSeparation>.230</wheelSeparation>
+				<wheelDiameter>0.070</wheelDiameter>
+				<torque>1.0</torque>
+				<commandTopic>cmd_vel</commandTopic>
+				<odometryTopic>odom</odometryTopic>
+				<odometryFrame>odom</odometryFrame>
+				<robotBaseFrame>base_footprint</robotBaseFrame>
+				<publishWheelJointState>true</publishWheelJointState>
+				<legacyMode>true</legacyMode>
+			</plugin>
+		</gazebo> -->
+
+		<!-- <gazebo reference="laser_sensor_link">
+			<sensor type="gpu_ray" name="laser_sensor">
+				<pose>0 0 0 0 0 0</pose>
+				<visualize>false</visualize>
+				<update_rate>40</update_rate>
+				<ray>
+					<scan>
+						<horizontal>
+							<samples>720</samples>
+							<resolution>1</resolution>
+							<min_angle>-1.570796</min_angle>
+							<max_angle>1.570796</max_angle>
+						</horizontal>
+					</scan>
+					<range>
+						<min>0.10</min>
+						<max>30.0</max>
+						<resolution>0.01</resolution>
+					</range>
+					<noise>
+						<type>gaussian</type>
+						<mean>0.0</mean>
+						<stddev>0.01</stddev>
+					</noise>
+				</ray>
+				<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+					<topicName>/servicebot/laser/scan</topicName>
+					<frameName>laser_sensor_link</frameName>
+				</plugin>
+			</sensor>
+		</gazebo> -->
+		<!--gazebo>
+	    <plugin name="servicebot_controller" filename="libgazebo_ros_servicebot.so">
+	      <publish_tf>1</publish_tf>
+	      <left_wheel_joint_name>wheel_left_joint</left_wheel_joint_name>
+	      <right_wheel_joint_name>wheel_right_joint</right_wheel_joint_name>
+	      <wheel_separation>.230</wheel_separation>
+	      <wheel_diameter>0.070</wheel_diameter>
+	      <torque>1.0</torque>
+	      <velocity_command_timeout>0.6</velocity_command_timeout>
+	      <cliff_sensor_left_name>cliff_sensor_left</cliff_sensor_left_name>
+	      <cliff_sensor_center_name>cliff_sensor_front</cliff_sensor_center_name>
+	      <cliff_sensor_right_name>cliff_sensor_right</cliff_sensor_right_name>
+	      <cliff_detection_threshold>0.04</cliff_detection_threshold>
+	      <bumper_name>bumpers</bumper_name>
+        <imu_name>imu</imu_name>
+	    </plugin>
+	  </gazebo-->
+	</xacro:macro>
+</robot>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="servicebot">
+
+    <xacro:macro name="imu" params="name parent *origin">
+        <joint name="${name}_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}" />
+            <child link="${name}" />
+        </joint>
+
+        <link name="${name}">
+            <!-- <inertial>
+                <mass value="1.2" />
+                <origin rpy="0 0 0" xyz="0 0 0" />
+                <inertia ixx="0.11042056" ixy="0.0" ixz="0.0" iyy="0.11042056" iyz="0.0" izz="0.11042056" />
+            </inertial> -->
+
+            <visual>
+             <origin xyz="0.015 0 -0.04" rpy="0 0 0"/>
+             <geometry>
+                <mesh filename="package://service_description_clean/meshes/sensors/imu.stl" scale="0.001 0.001 0.001"/>
+             </geometry>
+            </visual>
+        
+            <!-- <collision>
+             <origin xyz="0 0 0" rpy="0 0 0" />
+             <geometry>
+              <sphere radius="0.09" />
+                <mesh filename="package://neo_simulation/robots/mpo_700/meshes/MPO-700-WHEEL.dae" scale="0.001 0.001 0.001"/>
+             </geometry>
+            </collision> -->
+        </link>
+    </xacro:macro>
+</robot>
