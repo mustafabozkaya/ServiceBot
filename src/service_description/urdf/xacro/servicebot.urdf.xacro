@@ -674,97 +674,24 @@
       </inertial>
     </link>
 
-   
-    <joint name="chaster_wheel_joint1" type="continuous">
+    <!-- Chaster wheel1 -->
+    <xacro:chasster_wheel name="chaster_wheel1" parent="chaster_wheel_chassis1" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <!-- <origin xyz="0.0 -0.025 -0.027" rpy="0 0 0 " /> -->
       <origin xyz="0.025 -0.0 -0.027" rpy="0 0 0 " />
-      <parent link="chaster_wheel_chassis1" />
-      <child link="chaster_wheel1" />
-      <!-- <axis xyz="1 0 0" /> -->
-      <axis xyz="0 1 0" />
-      <dynamics damping="0.1" friction="0.1" />
+    </xacro:chasster_wheel>
 
-    </joint>
-    <link name="chaster_wheel1">
-      <visual>
-        <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" /> -->
-        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
-      </visual>
-      <collision>
-        <geometry>
-          <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" /> -->
-        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
-      </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
-    </link>
 
     <!-- chaster wheel2 -->
-    <xacro:chaster_wheel name="chaster_wheel2" parent="chaster_wheel_chassis2" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" >
+    <xacro:chaster_wheel name="chaster_wheel2" parent="chaster_wheel_chassis2" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <!-- <origin xyz="0.0 -0.025 -0.027" rpy="0 0 0 " /> -->
       <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
     </xacro:chaster_wheel>
 
-    
 
     <!-- chaster wheel3 -->
-    <xacro:chaster_wheel name="chaster_wheel3" parent="chaster_wheel_chassis3" xyz="0 0 0" rpy="0 0  ${2*M_PI_4}">
+    <xacro:chaster_wheel name="chaster_wheel3" parent="chaster_wheel_chassis3" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
     </xacro:chaster_wheel>
-
-    <link name="chaster_wheel3">
-      <visual>
-        <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" /> -->
-        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
-        <material name="green">
-          <color rgba="0 1 0 1" />
-        </material>
-      </visual>
-      <collision>
-        <geometry>
-          <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.01 -0.025 -0.025" rpy="0 0 0" /> -->
-        <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
-      </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
-    </link>
 
 
     <!-- upper chassis -->
