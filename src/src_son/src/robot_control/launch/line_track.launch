@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find realsense2_camera)/launch/rs_camera_et.launch"/>
+
+    <!-- for launch line tracking file -->
+    <node pkg="robot_control" type="line_track_amr_update.py" name="line_track_node" output="screen" />
+
+</launch>

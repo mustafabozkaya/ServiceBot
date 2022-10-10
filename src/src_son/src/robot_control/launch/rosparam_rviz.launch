@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam file="$(find tatus)/params/parrolingparam.yaml" command="load" ns="" />
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_gazebo_rviz.launch" />
+    <node name="rqtgui" pkg="rqt_gui" type="rqt_gui" output="screen" />
+</launch>

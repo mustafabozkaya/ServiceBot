@@ -1,0 +1,5 @@
+string qrcode
+string lift_up
+bool payload
+---
+bool success

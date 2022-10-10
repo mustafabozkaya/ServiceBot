@@ -1,0 +1,13 @@
+
+parroling_count : 10 
+parroling_count_max : 100
+parroling_count_min : 1,
+parroling_count_step : 1
+parroling_count_default : 10
+parroling_count_description : "Parroling count"
+parroling_count_type : "int"
+
+parroling_distance : 5.0
+parroling_distance_max : 10
+parroling_distance_min : 1
+

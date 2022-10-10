@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- for launch qr_code from reader-->
+    <include file="$(find robot_control)/launch/qr_publish.launch" />
+    <!-- for launch gui program -->
+    <include file="$(find robot_control)/launch/control_gui.launch" />
+    <node pkg="robot_control" type="main_control.py" name="main_control" output="screen" />
+</launch>

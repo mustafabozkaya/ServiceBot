@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <node pkg="robot_control" type="control_gui.py" name="control_gui"></node>
+</launch>

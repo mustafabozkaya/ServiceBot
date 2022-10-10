@@ -1,0 +1,5 @@
+# for show traveling duration
+float64 target
+---
+float64 duration
+bool success

@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+"""
+Navigation action client.
+"""
+import rospy
+import actionlib
+from robot_control.msg import NavigationTaskAction, NavigationTaskGoal
+
+def navigation_action_client(request):
+
+    rospy.init_node('navigation_action_client')
+    client = actionlib.SimpleActionClient('navigation_task', NavigationTaskAction) # create a client for the navigation action server
+    client.wait_for_server() # wait for the action server to start
+    goal = NavigationTaskGoal() # create a goal to send to the action server
+    goal.unit=request# set the goal
+
+    client.send_goal(goal, feedback_cb=feedback_callback) # send the goal to the action server, specifying a feedback callback function
+    result=client.wait_for_result() # wait for the action server to finish performing the action
+    if result:
+        state = client.get_state()
+        if state == 3:
+            print("Action finished successfully")
+            rospy.loginfo("action result: %s", client.get_result())
+        elif state == 4:
+            print("Action failed")
+        elif state == 2:
+            print("Action preempted")
+            rospy.loginfo("action result: %s", client.get_result())
+        elif state == 1:
+            print("Action aborted")
+        elif state == 0:
+            print("Action active")
+        else:
+            print("Action unknown state")
+    else:
+        print("Action server not available")
+
+def feedback_callback(feedback):
+    print("Feedback received: {}".format(feedback)) # print the feedback
+    rospy.loginfo("Feedback received: {}".format(feedback)) # log the feedback
+
+if __name__=="__main__":
+
+    request=int(input("Enter the request unit: ")
+    navigation_action_client(request) # call the function to send a goal to the action server
+
+
+
+    
