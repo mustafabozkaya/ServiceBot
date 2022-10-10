@@ -13,12 +13,10 @@
   <xacro:include filename="$(find service_description)/urdf/xacro/depth_camera.xacro" />
   <!-- IMU -->
   <xacro:include filename="$(find service_description)/urdf/xacro/imu.xacro" />
-  <!-- Lidar -->
-  <xacro:include filename="$(find service_description)/urdf/xacro/lidar.xacro" />
   <!-- Base -->
   <xacro:include filename="$(find service_description)/urdf/xacro/base.xacro" />
   <!-- Wheels -->
-  <xacro:include filename="$(find service_description)/urdf/xacro/wheels.xacro" />
+  <xacro:include filename="$(find service_description)/urdf/xacro/wheel.xacro" />
   <!-- Rplidar -->
   <xacro:include filename="$(find service_description)/urdf/xacro/rplidar.xacro" />
   <!-- Chasster wheel -->
@@ -226,17 +224,17 @@
     </link>
 
     <!-- Motor baglantı plakası1 -->
-    <joint name="motor_baglanti_plaka_joint1" type="fixed">
+    <joint name="left_motor_baglanti_joint" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
       <origin xyz="0.0765 0.0 -0.04" rpy="0 0 ${M_PI_2}" />
       <parent link="suspan_pole2" />
-      <child link="motor_baglanti_plaka" />
+      <child link="left_motor_baglanti_plaka" />
       <!-- <axis xyz="0 0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
     </joint>
 
-    <link name="motor_baglanti_plaka">
+    <link name="left_motor_baglanti_plaka">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
@@ -266,18 +264,18 @@
     </link>
 
     <!-- Motor baglantı plakası2 -->
-    <joint name="motor_baglanti_plaka_joint2" type="fixed">
+    <joint name="right_motor_baglanti_joint" type="fixed">
       <!-- prismatic -->
       <!-- <origin xyz="0.07 -0.0765 0" rpy="1.5707 0 0 " /> -->
       <origin xyz="0.0765 -0.0 -0.04" rpy="0 0 ${M_PI_2}" />
       <parent link="suspan_pole3" />
-      <child link="motor_baglanti_plaka2" />
+      <child link="right_motor_baglanti_plaka" />
       <!-- <axis xyz="0 0.0 1" /> -->
       <!-- <limit lower="-0.01" upper="0.01" effort="100" velocity="0.1" /> -->
 
     </joint>
 
-    <link name="motor_baglanti_plaka2">
+    <link name="right_motor_baglanti_plaka">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
@@ -308,17 +306,17 @@
 
 
     <!-- Motor1 -->
-    <joint name="motor_joint1" type="fixed">
+    <joint name="left_motor_joint" type="fixed">
       <!-- prismatic -->
       <origin xyz="-0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
-      <parent link="motor_baglanti_plaka" />
-      <child link="motor1" />
+      <parent link="left_motor_baglanti_plaka" />
+      <child link="left_motor" />
 
       <!-- <limit lower="-0.05" upper="0.05" effort="100" velocity="0.1" /> -->
 
     </joint>
 
-    <link name="motor1">
+    <link name="left_motor">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
@@ -347,17 +345,17 @@
       </inertial>
     </link>
 
-    <!-- Motor2 -->
-    <joint name="motor_joint2" type="fixed">
+    <!-- right_motor -->
+    <joint name="right_motor_joint" type="fixed">
       <!-- prismatic -->
       <origin xyz="0.02 0.0 -0.03" rpy="0 0 ${-M_PI_2}" /> <!-- visual and collision, joint shift -->
-      <parent link="motor_baglanti_plaka2" />
-      <child link="motor2" />
+      <parent link="right_motor_baglanti_plaka" />
+      <child link="right_motor" />
       <axis xyz="1 0 0" />
       <!-- <limit lower="-0.05" upper="0.05" effort="100" velocity="0.1" /> -->
 
     </joint>
-    <link name="motor2">
+    <link name="right_motor">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
@@ -387,17 +385,17 @@
     </link>
 
 
-    <!-- Reductor mil1 -->
-    <joint name="reduktor_mil_joint1" type="fixed">
+    <!-- left_reduktor_mil -->
+    <joint name="left_reduktor_mil_joint" type="fixed">
       <!-- prismatic -->
       <origin xyz="0. 0.058 0.0" rpy="0 0 0" />
-      <parent link="motor1" />
-      <child link="reduktor_mil1" />
+      <parent link="left_motor" />
+      <child link="left_reduktor_mil" />
       <!-- <axis xyz="1 0 0" /> -->
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
 
     </joint>
-    <link name="reduktor_mil1">
+    <link name="left_reduktor_mil">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
@@ -426,16 +424,16 @@
       </inertial>
     </link>
 
-    <!-- Reductor mil2 -->
-    <joint name="reduktor_mil_joint2" type="fixed">
+    <!-- right_reduktor_mil -->
+    <joint name="right_reduktor_joint" type="fixed">
       <origin xyz="0. -0.058 0.0" rpy="0 0 0" />
-      <parent link="motor2" />
-      <child link="reduktor_mil2" />
+      <parent link="right_motor" />
+      <child link="right_reduktor_mil" />
       <!-- <axis xyz="1 0 0" /> -->
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
 
     </joint>
-    <link name="reduktor_mil2">
+    <link name="right_reduktor_mil">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.001" />
@@ -464,17 +462,17 @@
       </inertial>
     </link>
 
-    <!-- reduktor1 -->
-    <joint name="reduktor_joint1" type="continuous">
+    <!-- left_drive_wheel -->
+    <joint name="left_wheel_joint" type="continuous">
       <!-- prismatic -->
       <origin xyz="0. 0.04 0.0" rpy="0 0 0" />
-      <parent link="reduktor_mil1" />
-      <child link="reduktorteker1" />
+      <parent link="left_reduktor_mil" />
+      <child link="left_drive_wheel" />
       <axis xyz="0 1 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
       <limit effort="100" velocity="20" />
     </joint>
-    <link name="reduktorteker1">
+    <link name="left_drive_wheel">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
@@ -505,18 +503,18 @@
       </inertial>
     </link>
 
-    <!-- reduktor2 -->
-    <joint name="reduktor_joint2" type="continuous">
+    <!-- right_drive_wheel -->
+    <joint name="right_wheel_joint" type="continuous">
       <!-- <origin xyz="-0.04 0.0 0.0" rpy="0 0 0" /> -->
       <origin xyz="0.0 -0.04 0.0" rpy="0 0 0" />
-      <parent link="reduktor_mil2" />
-      <child link="reduktorteker2" />
+      <parent link="right_reduktor_mil" />
+      <child link="right_drive_wheel" />
       <!-- <axis xyz="1 0 0" /> -->
       <axis xyz="0 1 0" />
       <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
       <limit effort="100" velocity="20" />
     </joint>
-    <link name="reduktorteker2">
+    <link name="right_drive_wheel">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
@@ -555,12 +553,12 @@
       <!-- <origin xyz="0.006 -0.198 0.047" rpy="0 0 0 " /> -->
       <origin xyz="-0.198 -0.01 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
-      <child link="chaster_wheel_chassis1" />
+      <child link="chaster_wheel1_chassis" />
       <axis xyz="0 0 1" />
       <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
       <dynamics damping="0.01" friction="0.0" />
     </joint>
-    <link name="chaster_wheel_chassis1">
+    <link name="chaster_wheel1_chassis">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
@@ -596,12 +594,12 @@
       <!-- <origin xyz="0.156 -0.115 0.047" rpy="0 0 0 " /> -->
       <origin xyz="0.156 -0.115 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
-      <child link="chaster_wheel_chassis2" />
+      <child link="chaster_wheel2_chassis" />
       <axis xyz="0 0 1" />
       <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
       <dynamics damping="0.01" friction="0.0" />
     </joint>
-    <link name="chaster_wheel_chassis2">
+    <link name="chaster_wheel2_chassis">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
@@ -638,12 +636,12 @@
       <!-- <origin xyz="0.115 0.156 0.047" rpy="0 0 0 " /> -->
       <origin xyz="0.156 0.115 0.047" rpy="0 0 0 " />
       <parent link="base_link" />
-      <child link="chaster_wheel_chassis3" />
+      <child link="chaster_wheel3_chassis" />
       <axis xyz="0 0 1" />
       <limit lower="${-M_PI}" upper="${M_PI}" effort="100" velocity="0.1" />
       <dynamics damping="0.01" friction="0.0" />
     </joint>
-    <link name="chaster_wheel_chassis3">
+    <link name="chaster_wheel3_chassis">
       <visual>
         <geometry>
           <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
@@ -675,23 +673,23 @@
     </link>
 
     <!-- Chaster wheel1 -->
-    <xacro:chasster_wheel name="chaster_wheel1" parent="chaster_wheel_chassis1" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
+    <xacro:chasster_wheel name="chaster_wheel1" parent="chaster_wheel1_chassis" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <!-- <origin xyz="0.0 -0.025 -0.027" rpy="0 0 0 " /> -->
       <origin xyz="0.025 -0.0 -0.027" rpy="0 0 0 " />
     </xacro:chasster_wheel>
 
 
     <!-- chaster wheel2 -->
-    <xacro:chaster_wheel name="chaster_wheel2" parent="chaster_wheel_chassis2" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
+    <xacro:chasster_wheel name="chaster_wheel2" parent="chaster_wheel2_chassis" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <!-- <origin xyz="0.0 -0.025 -0.027" rpy="0 0 0 " /> -->
       <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
-    </xacro:chaster_wheel>
+    </xacro:chasster_wheel>
 
 
     <!-- chaster wheel3 -->
-    <xacro:chaster_wheel name="chaster_wheel3" parent="chaster_wheel_chassis3" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
+    <xacro:chasster_wheel name="chaster_wheel3" parent="chaster_wheel3_chassis" xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}">
       <origin xyz="0.025 0.0 -0.027" rpy="0 0 0 " />
-    </xacro:chaster_wheel>
+    </xacro:chasster_wheel>
 
 
     <!-- upper chassis -->

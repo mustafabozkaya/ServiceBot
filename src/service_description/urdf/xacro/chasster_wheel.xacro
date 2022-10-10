@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="chaster_wheel" params="name parent xyz rpy  *origin ">
+    <xacro:macro name="chasster_wheel" params="name parent xyz rpy  *origin ">
         <link name="${name}_link">
 
             <visual>
@@ -23,8 +23,8 @@
                 <origin rpy="${rpy}" xyz="${xyz}" />
                 <mass value="0.1" />
                 <inertia ixx="6.458333333333333e-06" ixy="0" ixz="0" iyy="6.458333333333333e-06" iyz="0" izz="1.1249999999999999e-05">
-                 <!--  kg for small/big battery pack -->
-                <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
+                    <!--  kg for small/big battery pack -->
+                    <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
              More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
              m = 2.4 kg; h = 0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
@@ -35,7 +35,6 @@
             </inertial>
         </link>
 
-    
 
         <joint name="${name}_joint" type="continuous">
             <parent link="${parent}" />

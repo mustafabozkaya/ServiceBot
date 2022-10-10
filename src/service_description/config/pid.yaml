@@ -1,11 +1,11 @@
 servicebot:
   gazebo_ros_control:
     pid_gains:
-      reduktor_joint2:
+      right_wheel_joint:
         p: 0.06
-        i: 0.0
-        d: 0.0
-      reduktor_joint1:
+        i: 0.01
+        d: 0.01
+      left_wheel_joint:
         p: 0.06
-        i: 0.0
-        d: 0.0
+        i: 0.01
+        d: 0.01
