@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <!-- for launch qr_code from reader-->
-    <node pkg="robot_control" type="qr_publish.py" name="qr_pub_node" output="screen" />
-</launch>

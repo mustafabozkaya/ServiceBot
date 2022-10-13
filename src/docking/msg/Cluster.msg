@@ -1,0 +1,10 @@
+std_msgs/Header header
+sensor_msgs/PointCloud2 cloud
+pcl_msgs/PointIndices points
+docking/BoundingBox bbox
+std_msgs/Int32 clusterID
+docking/LineArray lines
+docking/ICP icp
+sensor_msgs/PointCloud2 icpCombinedCloud
+std_msgs/Bool isDock
+std_msgs/Bool potentialDock
