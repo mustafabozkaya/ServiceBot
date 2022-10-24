@@ -1,5 +1,0 @@
-<launch>
-     <node name="distance_angle" pkg="double_dist_ang" type="distance_angle" output="screen">
-     <!-- <remap from="pose_marker"  to="/ar_pose_marker" /> -->
-     </node>
-</launch>
