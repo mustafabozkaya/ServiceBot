@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="servicebot">
-    <xacro:macro name="wheel" params="name parent *origin">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="wheel" params="name parent xyz rpy *origin">
         <joint name="${name}_joint" type="continuous">
             <xacro:insert_block name="origin" />
             <parent link="${parent}" />
@@ -9,26 +9,20 @@
         </joint>
         <link name="${name}">
             <visual>
-                <origin xyz="0.08 -0.15 0.08" rpy="0 1.57 1.57" />
                 <geometry>
-                    <mesh filename="package://service_description_clean/meshes/servis/wheel.STL" scale="0.001 0.001 0.001" />
+                    <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
                 </geometry>
+                <!-- <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.5779 0" /> -->
+                <origin xyz="${xyz}" rpy="${rpy}" />
             </visual>
-        </link>
-    </xacro:macro>
-    <xacro:macro name="camera" params="name parent *origin">
-        <joint name="${name}_joint" type="fixed">
-            <xacro:insert_block name="origin" />
-            <parent link="${parent}" />
-            <child link="${name}" />
-        </joint>
-        <link name="${name}">
-            <visual>
-                <origin xyz="0.01 0 0" rpy="1.57 0 1.57" />
+            <collision>
                 <geometry>
-                    <mesh filename="package://service_description_clean/meshes/sensors/d435.dae" />
+                    <!-- <cylinder length="0.142" radius="0.006" /> -->
+                    <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
                 </geometry>
-            </visual>
+                <!-- <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" /> -->
+                <origin xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+            </collision>
         </link>
     </xacro:macro>
 </robot>

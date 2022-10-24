@@ -8,7 +8,6 @@
  -->
 <robot name="servicebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find service_description)/urdf/xacro/common_properties.urdf.xacro" />
-  <xacro:include filename="$(find service_description)/urdf/xacro/servicebot_gazebo.urdf.xacro" />
   <!-- Depth camera -->
   <xacro:include filename="$(find service_description)/urdf/xacro/depth_camera.xacro" />
   <!-- IMU -->
@@ -106,19 +105,7 @@
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.1455 0.0765 0.141" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <joint name="pole_suspan2_joint" type="fixed">
@@ -140,19 +127,7 @@
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="-0.1455 -0.0765  0.141" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <joint name="pole_suspan3_joint" type="fixed">
@@ -174,19 +149,7 @@
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="-0.1455 0.0765 0.141" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <joint name="suspan_pole4_joint" type="fixed">
@@ -208,19 +171,7 @@
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.1455 -0.0765 0.141" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- Motor baglantı plakası1 -->
@@ -248,19 +199,7 @@
         </geometry>
         <origin xyz="-0.015 0.176 -0.086" rpy="1.5707 0 0" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- Motor baglantı plakası2 -->
@@ -289,19 +228,7 @@
         </geometry>
         <origin xyz="0.015 -0.176 -0.086" rpy="1.5707 0 ${M_PI}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
 
@@ -330,19 +257,7 @@
         </geometry>
         <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- right_motor -->
@@ -369,19 +284,7 @@
         </geometry>
         <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
 
@@ -409,19 +312,7 @@
         </geometry>
         <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- right_reduktor_mil -->
@@ -447,106 +338,25 @@
         </geometry>
         <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${-M_PI_2} -${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0 0 0" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
+
 
     <!-- left_drive_wheel -->
-    <joint name="left_wheel_joint" type="continuous">
+
+    <xacro:wheel name="left_wheel" parent="left_reduktor_mil" xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}">
       <!-- prismatic -->
       <origin xyz="0. 0.04 0.0" rpy="0 0 0" />
-      <parent link="left_reduktor_mil" />
-      <child link="left_drive_wheel" />
-      <axis xyz="0 1 0" />
-      <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
-      <limit effort="100" velocity="20" />
-    </joint>
-    <link name="left_drive_wheel">
-      <visual>
-        <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.5779 0" /> -->
-        <origin xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
-      </visual>
-      <collision>
-        <geometry>
-          <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" /> -->
-        <origin xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
-      </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.05375 -0.00689  -0.1" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
-    </link>
+
+    </xacro:wheel>
 
     <!-- right_drive_wheel -->
-    <joint name="right_wheel_joint" type="continuous">
-      <!-- <origin xyz="-0.04 0.0 0.0" rpy="0 0 0" /> -->
+    <xacro:wheel name="right_wheel" parent="right_reduktor_mil" xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${-M_PI_2}">
+      <!-- prismatic -->
       <origin xyz="0.0 -0.04 0.0" rpy="0 0 0" />
-      <parent link="right_reduktor_mil" />
-      <child link="right_drive_wheel" />
-      <!-- <axis xyz="1 0 0" /> -->
-      <axis xyz="0 1 0" />
-      <!-- <limit lower="-0.15" upper="0.15" effort="100" velocity="0.01" /> -->
-      <limit effort="100" velocity="20" />
-    </joint>
-    <link name="right_drive_wheel">
-      <visual>
-        <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" /> -->
-        <origin xyz="0.079 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
-      </visual>
-      <collision>
-        <geometry>
-          <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
-        </geometry>
-        <!-- <origin xyz="0.155 -0.079 -${0.0725 + 0.01}" rpy="0 -1.57079 0" /> -->
-        <origin xyz="0.079 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
-      </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0 0 0" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
-    </link>
 
+    </xacro:wheel>
 
-    <!-- 3D camera -->
 
     <!-- Chaster wheel chassis1 -->
     <joint name="chaster_wheel_chassis_joint1" type="revolute">
@@ -574,19 +384,7 @@
         <!-- <origin xyz=" -0.03 0.03 -0.035" rpy="1.57079 0 0" /> -->
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- Chaster wheel chassis2 -->
@@ -616,19 +414,7 @@
         <!-- <origin xyz="-0.03 0.03 -0.035" rpy="1.57079 0 0" /> -->
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- Chaster wheel chassis3 -->
@@ -657,19 +443,7 @@
         <!-- <origin xyz="-0.03 0.03 -0.035 " rpy="1.57079 0 0" /> -->
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
-      </inertial>
+
     </link>
 
     <!-- Chaster wheel1 -->
@@ -719,19 +493,7 @@
         <!-- <origin xyz="-0.31 -0.32 -0.03" rpy="0 0 0" /> -->
         <origin xyz="-0.31 0.32 -0.03" rpy="0 0 -${pi/2}" />
       </collision>
-      <inertial>
-        <!-- COM experimentally determined -->
-        <origin xyz="0.0 0.0 0.0" />
-        <mass value="30" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
-             ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
-             izz = 1/2 * m * r^2
-          -->
-        <inertia ixx="0.0057724" ixy="0.0" ixz="0.0" iyy="0.0057724" iyz="0.0" izz="0.0000597" />
-      </inertial>
+
     </link>
 
 
@@ -757,7 +519,5 @@
     </xacro:imu>
 
 
-    <!-- gazebo simulation plugin -->
-    <xacro:servicebot_sim />
   </xacro:macro>
 </robot>

@@ -19,7 +19,7 @@
 		<joint name="${name}_gazebo_joint" type="fixed">
 			<origin xyz="0 0.015 0" rpy="0 0 0" />
 			<parent link="${name}_link" />
-			<child link="${name}_link_gazebo" />
+			<child link="${name}_link_depth" />
 		</joint>
 
 		<link name="${name}_link">
@@ -40,16 +40,11 @@
 				</material>
 			</visual>
 
-			<inertial>
-				<mass value="1e-5" />
-				<origin xyz="0 0 0" rpy="0 0 0" />
-				<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-			</inertial>
 		</link>
 
 		<link name="${name}_link_optical"></link>
 
-		<link name="${name}_link_gazebo" />
+		<link name="${name}_link_depth" />
 
 	</xacro:macro>
 </robot>
