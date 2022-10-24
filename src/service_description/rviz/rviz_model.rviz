@@ -60,92 +60,128 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel1:
+        cameradown_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel2:
+        cameradown_link_depth:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameradown_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel3:
+        cameraup_link_depth:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chaster_wheel1_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel_chassis1:
+        chaster_wheel1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel_chassis2:
+        chaster_wheel2_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chaster_wheel_chassis3:
+        chaster_wheel2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        motor1:
+        chaster_wheel3_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        motor2:
+        chaster_wheel3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        motor_baglanti_plaka:
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        motor_baglanti_plaka2:
+        left_motor:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        reduktor_mil1:
+        left_motor_baglanti_plaka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        reduktor_mil2:
+        left_reduktor_mil:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        reduktorteker1:
+        left_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        reduktorteker2:
+        right_motor:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole1:
+        right_motor_baglanti_plaka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole2:
+        right_reduktor_mil:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole3:
+        right_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole4:
+        rplidar_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        suspan_pole1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        suspan_pole2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        suspan_pole3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        suspan_pole4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -170,44 +206,58 @@ Visualization Manager:
           Value: false
         base_link:
           Value: false
-        chaster_wheel1:
+        cameradown_link:
           Value: true
-        chaster_wheel2:
-          Value: false
-        chaster_wheel3:
-          Value: false
-        chaster_wheel_chassis1:
-          Value: false
-        chaster_wheel_chassis2:
-          Value: false
-        chaster_wheel_chassis3:
-          Value: false
-        motor1:
-          Value: false
-        motor2:
-          Value: false
-        motor_baglanti_plaka:
-          Value: false
-        motor_baglanti_plaka2:
-          Value: false
-        odom:
+        cameradown_link_depth:
           Value: true
-        reduktor_mil1:
-          Value: false
-        reduktor_mil2:
-          Value: false
-        reduktorteker1:
+        cameradown_link_optical:
           Value: true
-        reduktorteker2:
+        cameraup_link:
           Value: true
-        supan_pole1:
-          Value: false
-        supan_pole2:
-          Value: false
-        supan_pole3:
-          Value: false
-        supan_pole4:
-          Value: false
+        cameraup_link_depth:
+          Value: true
+        cameraup_link_optical:
+          Value: true
+        chaster_wheel1_chassis:
+          Value: true
+        chaster_wheel1_link:
+          Value: true
+        chaster_wheel2_chassis:
+          Value: true
+        chaster_wheel2_link:
+          Value: true
+        chaster_wheel3_chassis:
+          Value: true
+        chaster_wheel3_link:
+          Value: true
+        imu_link:
+          Value: true
+        left_motor:
+          Value: true
+        left_motor_baglanti_plaka:
+          Value: true
+        left_reduktor_mil:
+          Value: true
+        left_wheel:
+          Value: true
+        right_motor:
+          Value: true
+        right_motor_baglanti_plaka:
+          Value: true
+        right_reduktor_mil:
+          Value: true
+        right_wheel:
+          Value: true
+        rplidar_link:
+          Value: true
+        suspan_pole1:
+          Value: true
+        suspan_pole2:
+          Value: true
+        suspan_pole3:
+          Value: true
+        suspan_pole4:
+          Value: true
         upper_chassis:
           Value: false
       Marker Alpha: 1
@@ -217,43 +267,55 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_footprint:
-            base_link:
-              chaster_wheel_chassis1:
-                chaster_wheel1:
-                  {}
-              chaster_wheel_chassis2:
-                chaster_wheel2:
-                  {}
-              chaster_wheel_chassis3:
-                chaster_wheel3:
-                  {}
-              supan_pole1:
+        base_footprint:
+          base_link:
+            cameradown_link:
+              cameradown_link_depth:
                 {}
-              supan_pole2:
-                motor_baglanti_plaka:
-                  motor1:
-                    reduktor_mil1:
-                      reduktorteker1:
-                        {}
-              supan_pole3:
-                motor_baglanti_plaka2:
-                  motor2:
-                    reduktor_mil2:
-                      reduktorteker2:
-                        {}
-              supan_pole4:
+              cameradown_link_optical:
                 {}
-              upper_chassis:
+            chaster_wheel1_chassis:
+              chaster_wheel1_link:
                 {}
+            chaster_wheel2_chassis:
+              chaster_wheel2_link:
+                {}
+            chaster_wheel3_chassis:
+              chaster_wheel3_link:
+                {}
+            imu_link:
+              {}
+            rplidar_link:
+              {}
+            suspan_pole1:
+              {}
+            suspan_pole2:
+              left_motor_baglanti_plaka:
+                left_motor:
+                  left_reduktor_mil:
+                    left_wheel:
+                      {}
+            suspan_pole3:
+              right_motor_baglanti_plaka:
+                right_motor:
+                  right_reduktor_mil:
+                    right_wheel:
+                      {}
+            suspan_pole4:
+              {}
+            upper_chassis:
+              cameraup_link:
+                cameraup_link_depth:
+                  {}
+                cameraup_link_optical:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -262,7 +324,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.7123985290527344
+      Distance: 1.0339068174362183
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -278,9 +340,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3797978460788727
+      Pitch: 0.5947977304458618
       Target Frame: <Fixed Frame>
-      Yaw: 5.249431610107422
+      Yaw: 6.134421348571777
     Saved: ~
 Window Geometry:
   Displays:
@@ -292,5 +354,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1600
-  X: 1920
-  Y: 0
+  X: 1870
+  Y: 27

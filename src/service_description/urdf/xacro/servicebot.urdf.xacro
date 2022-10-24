@@ -351,7 +351,7 @@
     </xacro:wheel>
 
     <!-- right_drive_wheel -->
-    <xacro:wheel name="right_wheel" parent="right_reduktor_mil" xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${-M_PI_2}">
+    <xacro:wheel name="right_wheel" parent="right_reduktor_mil" xyz="0.079 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}">
       <!-- prismatic -->
       <origin xyz="0.0 -0.04 0.0" rpy="0 0 0" />
 

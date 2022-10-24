@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="servicebot">
 
 	<xacro:macro name="depth_camera" params="name parent *origin">
-		<xacro:property name="depth_camera_link" value="0.05" />
+		<xacro:property name="depth_camera" value="0.05" />
 		<joint name="${name}_joint" type="fixed">
 			<axis xyz="0 1 0" />
 			<xacro:insert_block name="origin" />
@@ -24,14 +24,14 @@
 
 		<link name="${name}_link">
 			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0" />
+				<origin xyz="0 0.02 0" rpy="${M_PI_2} 0 ${M_PI_2}" />
 				<geometry>
-					<box size="${depth_camera_link} ${depth_camera_link} ${depth_camera_link}" />
+					<box size="${depth_camera} ${depth_camera} ${2*depth_camera}" />
 				</geometry>
 			</collision>
 
 			<visual>
-				<origin xyz="0 -0.0175 0" rpy="1.570796 0 1.570796" />
+				<origin xyz="0 0.02 0" rpy="${M_PI_2} 0 ${M_PI_2}" />
 				<geometry>
 					<mesh filename="package://service_description/meshes/sensors/d435.dae" />
 				</geometry>
