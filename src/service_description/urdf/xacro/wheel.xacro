@@ -21,7 +21,7 @@
                     <mesh filename="package://service_description/meshes/servis/reduktorteker.STL" scale="0.001 0.001 0.001" />
                 </geometry>
                 <!-- <origin xyz="-0.155 -0.079 ${0.0725 + 0.01}" rpy="0 1.57079 0" /> -->
-                <origin xyz="0.079 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
+                <origin xyz="${xyz}" rpy="${rpy}" />
             </collision>
         </link>
     </xacro:macro>
