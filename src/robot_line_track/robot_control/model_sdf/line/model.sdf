@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='sari_cizgi'>
+    <pose>1.3425 -2.4725 0 0 -0 0</pose>
+    <link name='Wall_0'>
+      <collision name='Wall_0_Collision'>
+        <geometry>
+          <box>
+            <size>3.9 0.05 0.001</size>
+          </box>
+        </geometry>
+        <pose>0 0 0.0005 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_0_Visual'>
+        <pose>0 0 0.0005 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>3.9 0.05 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>1 0.764706 0.305882 1</ambient>
+        </material>
+        <meta>
+          <layer>0</layer>
+        </meta>
+      </visual>
+      <pose>1.3175 -0.5225 0 0 -0 1.5708</pose>
+    </link>
+    <static>1</static>
+  </model>
+</sdf>

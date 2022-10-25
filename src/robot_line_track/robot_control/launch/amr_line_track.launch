@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find realsense2_camera)/launch/line_track.launch" />
+</launch>
