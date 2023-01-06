@@ -1,7 +1,8 @@
 <launch>
 
   <!-- <arg name="model" default="$(find urdf_tutorial)/urdf/08-macroed.urdf.xacro" /> -->
-  <arg name="model" default="$(find service_description)/urdf/service_circle_a2_realsense.urdf.xacro" />
+  <arg name="model"
+    default="$(find service_description)/urdf/service_circle_a2_realsense.urdf.xacro" />
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 
@@ -15,9 +16,17 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <!-- joint_state_publisher -->
-  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
-  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher"
+    type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
+
+  <!-- robot steering -->
+  <node name="robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+
+  <!-- rqt_gui -->
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
 </launch>

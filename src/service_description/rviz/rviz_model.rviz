@@ -60,6 +60,32 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        cameradown_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cameradown_link_gazebo:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameradown_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cameraup_link_gazebo:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cameraup_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         chaster_wheel1:
           Alpha: 1
           Show Axes: false
@@ -86,6 +112,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         chaster_wheel_chassis3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -130,22 +161,27 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole1:
+        rplidar_laser_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole2:
+        suspan_pole1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole3:
+        suspan_pole2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        supan_pole4:
+        suspan_pole3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        suspan_pole4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -170,6 +206,18 @@ Visualization Manager:
           Value: false
         base_link:
           Value: false
+        cameradown_link:
+          Value: true
+        cameradown_link_gazebo:
+          Value: true
+        cameradown_link_optical:
+          Value: true
+        cameraup_link:
+          Value: true
+        cameraup_link_gazebo:
+          Value: true
+        cameraup_link_optical:
+          Value: true
         chaster_wheel1:
           Value: true
         chaster_wheel2:
@@ -182,6 +230,8 @@ Visualization Manager:
           Value: false
         chaster_wheel_chassis3:
           Value: false
+        imu_link:
+          Value: true
         motor1:
           Value: false
         motor2:
@@ -190,8 +240,6 @@ Visualization Manager:
           Value: false
         motor_baglanti_plaka2:
           Value: false
-        odom:
-          Value: true
         reduktor_mil1:
           Value: false
         reduktor_mil2:
@@ -200,14 +248,16 @@ Visualization Manager:
           Value: true
         reduktorteker2:
           Value: true
-        supan_pole1:
-          Value: false
-        supan_pole2:
-          Value: false
-        supan_pole3:
-          Value: false
-        supan_pole4:
-          Value: false
+        rplidar_laser_link:
+          Value: true
+        suspan_pole1:
+          Value: true
+        suspan_pole2:
+          Value: true
+        suspan_pole3:
+          Value: true
+        suspan_pole4:
+          Value: true
         upper_chassis:
           Value: false
       Marker Alpha: 1
@@ -217,43 +267,55 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        odom:
-          base_footprint:
-            base_link:
-              chaster_wheel_chassis1:
-                chaster_wheel1:
-                  {}
-              chaster_wheel_chassis2:
-                chaster_wheel2:
-                  {}
-              chaster_wheel_chassis3:
-                chaster_wheel3:
-                  {}
-              supan_pole1:
+        base_footprint:
+          base_link:
+            cameradown_link:
+              cameradown_link_gazebo:
                 {}
-              supan_pole2:
-                motor_baglanti_plaka:
-                  motor1:
-                    reduktor_mil1:
-                      reduktorteker1:
-                        {}
-              supan_pole3:
-                motor_baglanti_plaka2:
-                  motor2:
-                    reduktor_mil2:
-                      reduktorteker2:
-                        {}
-              supan_pole4:
+              cameradown_link_optical:
                 {}
-              upper_chassis:
+            chaster_wheel_chassis1:
+              chaster_wheel1:
                 {}
+            chaster_wheel_chassis2:
+              chaster_wheel2:
+                {}
+            chaster_wheel_chassis3:
+              chaster_wheel3:
+                {}
+            imu_link:
+              {}
+            rplidar_laser_link:
+              {}
+            suspan_pole1:
+              {}
+            suspan_pole2:
+              motor_baglanti_plaka:
+                motor1:
+                  reduktor_mil1:
+                    reduktorteker1:
+                      {}
+            suspan_pole3:
+              motor_baglanti_plaka2:
+                motor2:
+                  reduktor_mil2:
+                    reduktorteker2:
+                      {}
+            suspan_pole4:
+              {}
+            upper_chassis:
+              cameraup_link:
+                cameraup_link_gazebo:
+                  {}
+                cameraup_link_optical:
+                  {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -262,7 +324,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.7123985290527344
+      Distance: 1.5171668529510498
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -278,9 +340,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3797978460788727
+      Pitch: 0.3647978901863098
       Target Frame: <Fixed Frame>
-      Yaw: 5.249431610107422
+      Yaw: 0.041235994547605515
     Saved: ~
 Window Geometry:
   Displays:
@@ -292,5 +354,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1600
-  X: 1920
-  Y: 0
+  X: 1870
+  Y: 27
