@@ -10,7 +10,7 @@ Panels:
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.6499999761581421
-    Tree Height: 198
+    Tree Height: 335
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -43,10 +43,10 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Class: rviz/RobotModel
-      Collision Enabled: false
+      Collision Enabled: true
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -59,12 +59,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         cameradown_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         cameradown_link_gazebo:
           Alpha: 1
           Show Axes: false
@@ -77,7 +77,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         cameraup_link_gazebo:
           Alpha: 1
           Show Axes: false
@@ -90,22 +90,22 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel_chassis1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         chaster_wheel_chassis2:
           Alpha: 1
           Show Axes: false
@@ -115,92 +115,92 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         imu_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor_baglanti_plaka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         motor_baglanti_plaka2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         reduktor1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         reduktor2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         reduktor_mil1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         reduktor_mil2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         rplidar_laser_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         suspan_pole1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         suspan_pole2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         suspan_pole3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         suspan_pole4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         upper_chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         wheel1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         wheel2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -340,7 +340,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 1.3263802528381348
+      Distance: 0.9666290283203125
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -348,27 +348,27 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.034106411039829254
-        Y: 0.06916199624538422
-        Z: -1.7520249002700439e-06
+        X: 0.3029351830482483
+        Y: -0.18079383671283722
+        Z: -1.3347923868423095e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4553990364074707
+      Pitch: 0.6703989505767822
       Target Frame: <Fixed Frame>
-      Yaw: 5.630382061004639
+      Yaw: 5.745361328125
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 638
+  Height: 863
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000016a00000224fc0200000002fb000000100044006900730070006c006100790073010000003d00000149000000c900fffffffb0000000a00560069006500770073010000018c000000d5000000a400ffffff000003400000022400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000020800000305fc0200000002fb000000100044006900730070006c006100790073010000003d000001d2000000c900fffffffb0000000a0056006900650077007301000002150000012d000000a400ffffff000004320000030500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1200
-  X: 476
-  Y: 27
+  Width: 1600
+  X: 0
+  Y: 0

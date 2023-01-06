@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!--
   This is not a standalone urdf for servicebot. It simply defines the 'servicebot' tag that can
-  be incorporated by other urdf files (e.g. turtlebot).
+be incorporated by other urdf files (e.g. turtlebot).
 
-  See servicebot_standalone.urdf.xacro for a standalone urdf to be tested with
+  See servicebot_standalone.urdf.xacro for a
+standalone urdf to be tested with
       servicebot_description/launch/view_model.launch
  -->
 <robot name="servicebot" xmlns:xacro="http://www.ros.org/wiki/xacro">
@@ -25,12 +26,13 @@
 
     <!--
        Base link is set at the bottom of the base mould.
-       This is done to be compatible with the way base link
+       This is done to be
+    compatible with the way base link
        was configured for turtlebot 1. Refer to
+    https://github.com/turtlebot/turtlebot/issues/40
 
-       https://github.com/turtlebot/turtlebot/issues/40
-
-       To put the base link at the more oft used wheel
+       To put the base link at the more oft
+    used wheel
        axis, set the z-distance from the base_footprint
        to 0.352.
       -->
@@ -43,7 +45,8 @@
       <visual>
         <geometry>
           <!-- new mesh -->
-          <mesh filename="package://service_description/meshes/servis/sase2.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/sase2.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <material name="silver">
           <color rgba="0.8 0.8 0.8 1.0" />
@@ -52,7 +55,8 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/sase2.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/sase2.STL"
+            scale="0.001 0.001 0.001" />
           <!-- <cylinder length="0.16" radius="0.26" /> -->
         </geometry>
         <origin xyz="-0.254 0.237  -0.281" rpy="0 0 -${pi/2}" />
@@ -61,11 +65,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.01 0 0" />
         <mass value="15" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.37" ixy="0.0" ixz="0.0" iyy="0.28" iyz="0.0" izz="0.36" />
@@ -80,14 +88,16 @@
     <link name="suspan_pole1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
@@ -95,11 +105,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.1455 0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -114,14 +128,16 @@
     <link name="suspan_pole2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
@@ -129,11 +145,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="-0.1455 -0.0765  0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -148,14 +168,16 @@
     <link name="suspan_pole3">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
@@ -163,11 +185,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="-0.1455 0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -182,14 +208,16 @@
     <link name="suspan_pole4">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/suspansiyon_mili.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.006 -0.006 -0.071" rpy="0 0 0" />
       </collision>
@@ -197,11 +225,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.1455 -0.0765 0.141" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -222,14 +254,16 @@
     <link name="motor_baglanti_plaka">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.015  0.176 -0.086" rpy="1.5707 0 0" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.015 0.176 -0.086" rpy="1.5707 0 0" />
       </collision>
@@ -237,11 +271,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -263,14 +301,16 @@
     <link name="motor_baglanti_plaka2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.015  -0.176 -0.086" rpy="1.5707 0 ${-M_PI}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_baglanti.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.015 -0.176 -0.086" rpy="1.5707 0 ${M_PI}" />
       </collision>
@@ -278,11 +318,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -303,14 +347,16 @@
     <link name="motor1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.03 -0.05 0.03" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
@@ -318,11 +364,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -342,14 +392,16 @@
     <link name="motor2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/motor_kutusu.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.03 0.05 -0.03" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
@@ -357,11 +409,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -382,14 +438,16 @@
     <link name="reduktor_mil1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL"
+            scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL"
+            scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.007 0.013 0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
@@ -397,11 +455,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -420,14 +482,16 @@
     <link name="reduktor_mil2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL"
+            scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${-M_PI_2} -${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL" scale="0.001 0.001 0.002" />
+          <mesh filename="package://service_description/meshes/servis/reduktor_mili.STL"
+            scale="0.001 0.001 0.002" />
         </geometry>
         <origin xyz="-0.007 -0.013 -0.007" rpy="0 ${M_PI_2} -${M_PI_2}" />
       </collision>
@@ -435,11 +499,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -459,7 +527,8 @@
     <link name="reduktor1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
         <xacro:bronze />
@@ -467,7 +536,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0735 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
@@ -475,11 +545,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -498,7 +572,8 @@
     <link name="reduktor2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
         <xacro:bronze />
@@ -506,7 +581,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/reduktor.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/reduktor.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0735 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
@@ -514,11 +590,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -537,7 +617,8 @@
     <link name="wheel1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
         <xacro:green />
@@ -546,7 +627,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0798 -0.155 ${0.0725 + 0.0099}" rpy="0 ${M_PI_2} ${M_PI_2}" />
       </collision>
@@ -554,11 +636,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -577,7 +663,8 @@
     <link name="wheel2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
         <xacro:green />
@@ -586,7 +673,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/servis/tahrik_tekeri.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="0.0798 0.155 -${0.0725 + 0.0099}" rpy="0 ${-M_PI_2} ${M_PI_2}" />
       </collision>
@@ -594,11 +682,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.05375 -0.00689  -0.1" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -617,14 +709,16 @@
     <link name="chaster_wheel_chassis1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz=" -0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
@@ -632,11 +726,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -654,14 +752,16 @@
     <link name="chaster_wheel_chassis2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/servis/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
@@ -669,11 +769,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.21" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -691,14 +795,16 @@
     <link name="chaster_wheel_chassis3">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 -0.03 -0.035" rpy="${M_PI_2} 0 ${M_PI_2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_tabla.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.03 -0.03 -0.035 " rpy="${M_PI_2} 0 ${M_PI_2}" />
       </collision>
@@ -706,11 +812,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -729,7 +839,8 @@
     <link name="chaster_wheel1">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
         <xacro:green />
@@ -737,7 +848,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
@@ -745,11 +857,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -768,7 +884,8 @@
     <link name="chaster_wheel2">
       <visual>
         <geometry>
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
         <xacro:green />
@@ -776,7 +893,8 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
@@ -784,11 +902,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -807,8 +929,10 @@
     <link name="chaster_wheel3">
       <visual>
         <geometry>
-          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL"
+          scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
         <xacro:green />
@@ -816,8 +940,10 @@
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
-          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL"
+          scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/sarhos_tabla/sarhos_teker.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.025 0.01 -0.025" rpy="0 0 ${-M_PI_2}" />
       </collision>
@@ -825,11 +951,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -847,16 +977,20 @@
     <link name="upper_chassis">
       <visual>
         <geometry>
-          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
-          <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL"
+          scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/servis/ust_sase.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
       </visual>
       <collision>
         <geometry>
           <!-- <cylinder length="0.142" radius="0.006" /> -->
-          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL" scale="0.001 0.001 0.001" /> -->
-          <mesh filename="package://service_description/meshes/servis/ust_sase.STL" scale="0.001 0.001 0.001" />
+          <!-- <mesh filename="package://service_description/meshes/servis/ust_kaporta.STL"
+          scale="0.001 0.001 0.001" /> -->
+          <mesh filename="package://service_description/meshes/servis/ust_sase.STL"
+            scale="0.001 0.001 0.001" />
         </geometry>
         <origin xyz="-0.3 0.32 -0.03" rpy="0 0 -${pi/2}" />
       </collision>
@@ -864,11 +998,15 @@
         <!-- COM experimentally determined -->
         <origin xyz="0.0 0.0 0.0" />
         <mass value="0.20" /> <!--  kg for small/big battery pack -->
-        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass distribution
-             More details: http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
-             m = 2.4 kg; h = 0.09 m; r = 0.175 m
+        <!-- servicebot's inertia tensor is approximated by a cylinder with homogeneous mass
+        distribution
+             More details:
+        http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors
+             m = 2.4 kg; h =
+        0.09 m; r = 0.175 m
              ixx = 1/12 * m * (3 * r^2 + h^2)
-             iyy = 1/12 * m * (3 * r^2 + h^2)
+             iyy = 1/12 *
+        m * (3 * r^2 + h^2)
              izz = 1/2 * m * r^2
           -->
         <inertia ixx="0.00057724" ixy="0.0" ixz="0.0" iyy="0.00057724" iyz="0.0" izz="0.00000597" />
@@ -895,7 +1033,8 @@
       <inertial>
         <origin rpy="0 0 0" xyz="0 0 0" />
         <mass value="0.1" />
-        <inertia ixx="6.458333333333333e-06" ixy="0" ixz="0" iyy="6.458333333333333e-06" iyz="0" izz="1.1249999999999999e-05" />
+        <inertia ixx="6.458333333333333e-06" ixy="0" ixz="0" iyy="6.458333333333333e-06" iyz="0"
+          izz="1.1249999999999999e-05" />
 
       </inertial>
     </link>

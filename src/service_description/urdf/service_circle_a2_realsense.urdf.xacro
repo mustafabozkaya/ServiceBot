@@ -7,8 +7,6 @@
 
     <!-- include the macro for the robot -->
     <xacro:servicebot />
-    <!-- <xacro:stack_hexagons parent="base_link" />
-    <xacro:sensor_kinect parent="base_link" /> -->
-
+  
 
 </robot>

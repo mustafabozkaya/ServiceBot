@@ -8,12 +8,5 @@
   <xacro:include filename="$(find service_description)/urdf/xacros/servicebot_properties.urdf.xacro" />
   <!-- Bases -->
   <xacro:include filename="$(find service_description)/urdf/xacros/servicebot.urdf.xacro" />
-  <!-- Stacks
-    <xacro:include filename="$(find kobuki_description)/urdf/stacks/circles.urdf.xacro" />
-    <xacro:include filename="$(find kobuki_description)/urdf/stacks/hexagons.urdf.xacro" />
-   
-  <xacro:include filename="$(find kobuki_description)/urdf/sensors/kinect.urdf.xacro" />
-  <xacro:include filename="$(find kobuki_description)/urdf/sensors/asus_xtion_pro.urdf.xacro" />
-  <xacro:include filename="$(find kobuki_description)/urdf/sensors/asus_xtion_pro_offset.urdf.xacro" />
-  -->
+
 </robot>
